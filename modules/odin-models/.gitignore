@@ -1,0 +1,7 @@
+.env
+.npmrc
+.idea
+dist
+node_modules
+ormconfig.d19n.sandbox.json
+ormconfig.youfibre.prod.json

@@ -1,0 +1,19 @@
+{
+  "type": "postgres",
+  "host": "odin-prod-db.chbucothrs1f.eu-west-2.rds.amazonaws.com",
+  "port": 5432,
+  "username": "postgres",
+  "password": "k0ZxCOnzAw43NmAR4Fz6",
+  "synchronize": false,
+  "database": "odin",
+  "entities": [
+    "dist/**/*.entity.js"
+  ],
+  "migrationsTableName": "odin_migration_table",
+  "migrations": [
+    "migration/*.ts"
+  ],
+  "cli": {
+    "migrationsDir": "migration"
+  }
+}

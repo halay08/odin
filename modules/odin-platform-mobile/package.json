@@ -1,0 +1,72 @@
+{
+  "name": "odin-platform",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@d19n/common": "0.0.148",
+    "@d19n/models": "^0.1.59",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
+    "@types/jest": "^24.0.0",
+    "@types/node": "^12.0.0",
+    "@types/ol": "^6.4.2",
+    "@types/openlayers": "^4.6.17",
+    "@types/proj4": "^2.5.0",
+    "@types/react-redux": "^7.1.9",
+    "@types/react-router-dom": "^5.1.7",
+    "@types/uuid": "^8.3.0",
+    "antd": "^4.11.2",
+    "axios": "^0.19.2",
+    "change-case": "^4.1.1",
+    "history": "^4.10.1",
+    "install": "^0.13.0",
+    "lodash": "^4.17.15",
+    "moment": "^2.26.0",
+    "node-sass": "^4.14.1",
+    "npm": "^6.14.8",
+    "ol": "^6.3.1",
+    "ol-layerswitcher": "^3.5.0",
+    "openlayers": "^4.6.5",
+    "proj4": "^2.6.3",
+    "qs": "^6.9.4",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-ga": "^3.2.1",
+    "react-hotjar": "^2.2.1",
+    "react-image-file-resizer": "^0.4.2",
+    "react-redux": "^7.2.0",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "^4.0.1",
+    "redux": "^4.0.5",
+    "redux-saga": "^1.1.3",
+    "typescript": "~4.1.2",
+    "uuid": "^8.3.0",
+    "webpack": "4.44.2"
+  },
+  "resolutions": {
+    "**/@typescript-eslint/eslint-plugin": "^4.1.1",
+    "**/@typescript-eslint/parser": "^4.1.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

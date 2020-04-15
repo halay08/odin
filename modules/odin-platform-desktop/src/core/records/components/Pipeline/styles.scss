@@ -1,0 +1,37 @@
+.pipeline-wrapper {
+  // overrides
+  height: 48px;
+  background: #fff;
+  border-radius: .25rem;
+  padding: 8px;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .1);
+
+  .ant-radio-group {
+
+    width: 100%;
+    display: flex;
+
+    label {
+
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+
+    }
+
+    .ant-radio-button-wrapper {
+      border: 1px solid #e7e7e7;
+      width: 100%;
+    }
+
+    .current-stage {
+      color: #fff;
+      background: #0095ff;
+    }
+
+    .past-stage {
+      color: #fff;
+      background: #4BCA81;
+    }
+  }
+}

@@ -1,0 +1,17 @@
+.dynamic-form-modal {
+
+  z-index: 5000;
+
+  .dynamic-form {
+
+    label {
+      text-transform: capitalize;
+      font-weight: 600;
+    }
+
+    @media (max-width: 640px) {
+      max-height: 300px;
+      overflow: auto;
+    }
+  }
+}

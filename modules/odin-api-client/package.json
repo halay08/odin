@@ -1,0 +1,76 @@
+{
+    "name": "@d19n/client",
+    "version": "0.0.231",
+    "description": "Microservice communications client.",
+    "repository": "https://github.com/d19n-llc/odin-api-client",
+    "main": "dist/ServiceClient.js",
+    "typings": "dist/ServiceClient.d.ts",
+    "license": "UNLICENSED",
+    "scripts": {
+        "preversion": "rm -rf dist && tsc",
+        "patch": "npm version patch",
+        "postversion": "npm publish && git push",
+        "prebuild": "rimraf dist",
+        "build": "nest build",
+        "start": "nest start",
+        "start:dev": "nest start --watch",
+        "start:debug": "nest start --debug --watch",
+        "start:prod": "node dist/main",
+        "lint": "tslint -p tsconfig.json -c tslint.json",
+        "test": "jest",
+        "test:watch": "jest --watch",
+        "test:cov": "jest --coverage",
+        "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
+        "test:e2e": "jest --config ./test/jest-e2e.json"
+    },
+    "dependencies": {
+        "@akanass/rx-http-request": "^3.3.0",
+        "@d19n/common": "0.0.148",
+        "@d19n/models": "^0.1.59",
+        "@golevelup/nestjs-rabbitmq": "^1.16.0",
+        "@nestjs/microservices": "^7.0.3",
+        "@nestjs/platform-express": "^7.6.7",
+        "amqplib": "^0.5.5",
+        "axios": "^0.19.2",
+        "dotenv": "^8.2.0",
+        "pg": "^7.12.1",
+        "reflect-metadata": "^0.1.13",
+        "rimraf": "^3.0.0",
+        "rxjs": "^6.5.3"
+    },
+    "devDependencies": {
+        "@nestjs/cli": "^6.9.1",
+        "@nestjs/schematics": "^6.7.0",
+        "@nestjs/testing": "^7.6.7",
+        "@types/express": "^4.17.1",
+        "@types/jest": "^24.0.18",
+        "@types/node": "^12.7.8",
+        "@types/supertest": "^2.0.8",
+        "jest": "^24.9.0",
+        "prettier": "^1.18.2",
+        "supertest": "^4.0.2",
+        "ts-jest": "^24.1.0",
+        "ts-loader": "^6.2.0",
+        "ts-node": "^8.4.1",
+        "tsconfig-paths": "^3.9.0",
+        "tslint": "^5.20.0",
+        "typescript": "^3.8.3"
+    },
+    "jest": {
+        "moduleFileExtensions": [
+            "js",
+            "json",
+            "ts"
+        ],
+        "rootDir": "test",
+        "testRegex": "Test.ts$",
+        "transform": {
+            "^.+\\.(t|j)s$": "ts-jest"
+        },
+        "collectCoverageFrom": [
+            "**/*.(t|j)s"
+        ],
+        "coverageDirectory": "../coverage",
+        "testEnvironment": "node"
+    }
+}

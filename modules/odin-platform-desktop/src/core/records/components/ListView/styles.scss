@@ -1,0 +1,24 @@
+.list-view {
+
+  background: #ffff;
+
+  .page-header {
+    padding: 1rem;
+    border-bottom: 1px solid #dddbda;
+    -moz-border-radius-topright: .25rem;
+    -moz-border-radius-topleft: .25rem;
+    background: #f3f2f2;
+    box-shadow: none;
+
+    .search-input {
+      width: 300px;
+      margin-right: 12px;
+      margin-bottom: 8px;
+    }
+  }
+
+  .list-view-table {
+
+  }
+
+}

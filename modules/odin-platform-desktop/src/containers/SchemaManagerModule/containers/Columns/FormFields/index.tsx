@@ -1,0 +1,37 @@
+export const formFields = [
+  {
+    label: 'Name',
+    property: 'name',
+    type: 'TEXT',
+    isRequired: true,
+    message: 'Please input name',
+    value: undefined,
+  },
+  {
+    label: 'Schema type',
+    property: 'schemaTypeId',
+    type: 'ENUM',
+    isRequired: false,
+    message: 'Select type',
+    isHidden: false,
+    value: undefined,
+    options: [],
+    isDisabled: false,
+  },
+  {
+    label: 'Label',
+    property: 'label',
+    type: 'TEXT',
+    isRequired: true,
+    message: 'Please input label',
+    value: undefined,
+  },
+  {
+    label: 'Description',
+    property: 'description',
+    type: 'TEXT',
+    isRequired: true,
+    message: 'Please input description',
+    value: undefined,
+  },
+]

@@ -1,0 +1,35 @@
+version: '3'
+
+services:
+    crm:
+        container_name: odin-api-crm
+        build:
+            context: .
+            args:
+                NPM_TOKEN: 86265cdd-1793-47a7-a7ee-56bcf6033fed
+        hostname: 'docker'
+        env_file:
+           - .env
+        environment:
+            ELASTICSEARCH_HOST: http://odin-elasticsearch:9200
+            LOCAL_PORT: 80
+            REDIS_ENDPOINT: odin-redis
+            REDIS_PORT: 6379
+            RABBITMQ_HOST: odin-rabbitmq
+            RABBITMQ_PORT: 5672
+        ports:
+            - 10104:80
+        networks:
+            odin_network:
+                ipv4_address: 99.0.0.104
+        volumes:
+            - ./src:/app/src
+            - /app/node_modules
+
+        entrypoint: []
+        command:
+            npm run start:dev
+networks:
+    odin_network:
+        external: true
+

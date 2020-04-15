@@ -1,0 +1,226 @@
+version: '3'
+
+services:
+
+  #
+  # HAproxy (routes requests to specific container based on path)
+  #
+  haproxy:
+    build:          proxy
+    container_name: odin-haproxy
+    ports:
+      - 8080:8080
+    networks:
+      odin_network:
+        ipv4_address: 99.0.0.80
+
+#  postgres:
+#    image:          postgres:11-alpine
+#    container_name: odin-postgres
+#    hostname:       postgres
+#    restart:        always
+#    environment:
+#      POSTGRES_USER:     postgres
+#      POSTGRES_PASSWORD: postgres
+#      POSTGRES_DB:       odin
+#    volumes:
+#      - odin-postgres:/var/lib/postgresql/data
+#    ports:
+#      - 5432:5432
+#    networks:
+#      odin_network:
+#        ipv4_address: 99.0.0.10
+#
+#  pgadmin:
+#    container_name: odin-pgadmin
+#    image:          dpage/pgadmin4
+#    environment:
+#      POSTGRES_USER:            postgres
+#      POSTGRES_PASSWORD:        postgres
+#      PGADMIN_DEFAULT_EMAIL:    ${PGADMIN_DEFAULT_EMAIL:-root@root.com}
+#      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD:-root}
+#    volumes:
+#      - pgadmin:/root/.pgadmin
+#    ports:
+#      - "${PGADMIN_PORT:-5050}:80"
+#    networks:
+#      odin_network:
+#        ipv4_address: 99.0.0.106
+#    restart:        unless-stopped
+#
+  #
+  #  RabbitMQ (Message Broker)
+  #
+  rabbitmq:
+    image:          "rabbitmq:3-management"
+    container_name: "odin-rabbitmq"
+    hostname:       "rabbitmq"
+    restart:        always
+    environment:
+      RABBITMQ_ERLANG_COOKIE: "SWQOKODSQALRPCLNMEQG"
+      RABBITMQ_DEFAULT_USER:  "rabbitmq"
+      RABBITMQ_DEFAULT_PASS:  "agaeq14"
+      RABBITMQ_DEFAULT_VHOST: "/"
+    ports:
+      - "10093:15672"
+      - "10092:5672"
+    networks:
+      odin_network:
+        ipv4_address: 99.0.0.2
+
+  #
+  #  Elasticsearch (Document Data Storage)
+  #
+  elasticsearch:
+    image:          docker.elastic.co/elasticsearch/elasticsearch:7.11.1
+    container_name: "odin-elasticsearch"
+    hostname:       "elasticsearch"
+    restart:        always
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    environment:
+      node.name:                    "elasticsearch"
+      ES_JAVA_OPTS:                 "-Xmx256m -Xms256m"
+      discovery-type:               "single-node"
+      cluster.initial_master_nodes: "elasticsearch"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - odin-elasticsearch:/usr/share/elasticsearch/data
+    networks:
+      odin_network:
+        ipv4_address: 99.0.0.3
+#
+#  #
+#  #  Kibana (Elasticsearch Dashboard)
+#  #
+#  kibana:
+#    image:          docker.elastic.co/kibana/kibana:7.5.2
+#    container_name: "odin-kibana"
+#    hostname:       "kibana"
+#    restart:        always
+#    ports:
+#      - "5601:5601"
+#    networks:
+#      odin_network:
+#        ipv4_address: 99.0.0.4
+#    depends_on:
+#      - elasticsearch
+#
+  #
+  #  Jaeger (for tracing)
+  #
+#  jaeger-collector:
+#    image: jaegertracing/jaeger-collector:1.21.0
+#    container_name: "odin-jaeger-collector"
+#    command: ["--cassandra.keyspace=jaeger_v1_dc1", "--cassandra.servers=cassandra", "--collector.zipkin.http-port=9411"]
+#    ports:
+#      - "14269"
+#      - "14268:14268"
+#      - "14250"
+#      - "9411:9411"
+#    restart: on-failure
+#    depends_on:
+#      - cassandra-schema
+#    networks:
+#      odin_network:
+#        ipv4_address: 99.0.0.5
+
+#  jaeger-query:
+#    image: jaegertracing/jaeger-query:1.21.0
+#    container_name: "odin-jaeger-query"
+#    command: ["--cassandra.keyspace=jaeger_v1_dc1", "--cassandra.servers=cassandra"]
+#    ports:
+#      - "16686:16686"
+#      - "16687"
+#    restart: on-failure
+#    depends_on:
+#      - cassandra-schema
+#    networks:
+#      odin_network:
+#        ipv4_address: 99.0.0.6
+
+#  jaeger-agent:
+#    image: jaegertracing/jaeger-agent:1.21.0
+#    container_name: "odin-jaeger-agent"
+#    command: ["--reporter.grpc.host-port=jaeger-collector:14250"]
+#    ports:
+#      - "5775:5775/udp"
+#      - "6831:6831/udp"
+#      - "6832:6832/udp"
+#      - "5778:5778"
+#    restart: on-failure
+#    depends_on:
+#      - jaeger-collector
+#    networks:
+#      odin_network:
+#        ipv4_address: 99.0.0.8
+#
+#  cassandra:
+#    image: cassandra:3.9
+#    container_name: "odin-cassandra"
+#    networks:
+#      odin_network:
+#        ipv4_address: 99.0.0.9
+#
+#
+##   this initizlizes the cassandra database with the jaeger schema
+#  cassandra-schema:
+#    image: jaegertracing/jaeger-cassandra-schema
+#    container_name: "odin-cassandra-schema"
+#    depends_on:
+#      - cassandra
+#    networks:
+#      odin_network:
+#        ipv4_address: 99.0.0.10
+#
+#  #
+#  #  Influxdb (Monitoring Metrics Store)
+#  #
+#  influxdb:
+#    image:          influxdb:latest
+#    container_name: "odin-influxdb"
+#    hostname:       "influxdb"
+#    ports:
+#      - "8083:8083"
+#      - "8086:8086"
+#      - "8090:8090"
+#    volumes:
+#      - odin-influxdb:/var/lib/influxdb
+#    networks:
+#      odin_network:
+#        ipv4_address: 99.0.0.6
+
+  #
+  #  Redis (Monitoring Metrics Store)
+  #
+  redis:
+    image:          redis:5.0.4
+    container_name: odin-redis
+    ports:
+      - 6379:6379
+    networks:
+      odin_network:
+        ipv4_address: 99.0.0.12
+
+#
+# Internal Networks
+#
+networks:
+  odin_network:
+    external: true
+
+#
+# Storage Volumes
+#
+volumes:
+  pgadmin:
+  odin-postgres:
+  odin-pgadmin:
+  odin-elasticsearch:
+  odin-redis:
+  odin-influxdb:
+

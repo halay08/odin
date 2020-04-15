@@ -1,0 +1,244 @@
+@import 'styles/colors';
+
+#root {
+  height: 100%;
+  bottom: 0;
+  background: #f1f3f7;
+}
+
+body {
+  height: 100%;
+  bottom: 0;
+  background: #f1f3f7;
+}
+
+.app-container {
+  height: 100%;
+  bottom: 0;
+  background: #f1f3f7;
+}
+
+// override ant
+@media (max-width: 640px) {
+  .ant-col-xs-12 {
+    max-width: 100%;
+    flex: auto;
+  }
+}
+
+.ant-table-container {
+  overflow: auto
+}
+
+.ant-table-header {
+  .ant-table-thead {
+    .ant-table-cell {
+      background-color: #fafaf9;
+      text-transform: capitalize;
+      color: #514f4d;
+      padding: 0.25rem 0.5rem;
+      font-weight: 700;
+      line-height: normal;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+  }
+}
+
+.ant-table-row {
+  .ant-table-cell {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+}
+
+.ant-card-body {
+  padding: 10px;
+}
+
+.record-detail-view {
+  margin-right: 12px;
+  margin-left: 12px;
+  background: none;
+}
+
+.ant-empty-image {
+  height: 50px;
+}
+
+.ant-empty-normal {
+  margin: 0px;
+}
+
+.ant-layout {
+  height: 100%;
+
+  .record-detail-view {
+    background: none;
+  }
+}
+
+.ant-layout-header {
+  height: 38px;
+  line-height: 38px;
+  padding: 0px;
+}
+
+.ant-card-head-title {
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+.page-layout {
+  .header {
+    width: 100%;
+    left: 0;
+    top: 0;
+    right: 0;
+    z-index: 1000;
+  }
+
+  .page-content {
+    overflow: auto;
+  }
+
+  .sider-menu {
+    overflow: auto;
+    border-right: 1px solid #dadada;
+
+    .ant-layout-sider-trigger {
+      border-right: 1px solid #dadada;
+    }
+  }
+}
+
+.list-view {
+  .page-header {
+    padding: 1rem;
+    border-bottom: 1px solid #dddbda;
+    -moz-border-radius-topright: .25rem;
+    -moz-border-radius-topleft: .25rem;
+    background: #f3f2f2;
+    box-shadow: none;
+
+    .search-input {
+      width: 400px;
+      margin-top: 8px;
+      margin-bottom: 8px;
+    }
+  }
+
+  .list-view-table {
+    margin-left: 8px;
+    margin-right: 8px;
+  }
+}
+
+.data-table-page-header {
+  padding: 1rem;
+  border-bottom: 1px solid #dddbda;
+  -moz-border-radius-topright: .25rem;
+  -moz-border-radius-topleft: .25rem;
+  background: #f3f2f2;
+  box-shadow: none;
+}
+
+.page-content {
+  margin-top: 8px;
+}
+
+.custom-static-search-wrapper {
+  div {
+    display: flex;
+  }
+
+  width: 400px;
+
+  .undefined-action {
+    position: relative;
+    right: 32px;
+    top: 0px;
+    width: 34px;
+    border-left: 1px solid #d9d9d9;
+    padding-left: 8px;
+    padding-top: 5px;
+  }
+}
+
+.detail-body-wrapper {
+  background: white;
+  margin-top: .25rem;
+  padding: 10px;
+  border-radius: .25rem;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.1);
+  border: 1px solid #dddbda;
+}
+
+.ant-descriptions-item-label {
+  font-weight: 700;
+}
+
+
+.record-detail-view {
+  margin-top: 10px;
+  background: #f1f3f7;
+
+  .page-header {
+    margin-left: 6px;
+    margin-right: 6px;
+    margin-bottom: 12px;
+    background: #fff;
+    background-clip: padding-box;
+
+    .content {
+      display: flex;
+    }
+  }
+
+  .record-pipeline {
+    margin-top: 12px;
+    margin-bottom: 8px;
+  }
+
+  .record-main-content-row {
+    margin-top: 4px;
+  }
+}
+
+.identity-manager-wrapper {
+  .ant-tabs-nav-wrap {
+    padding-left: 10px;
+  }
+
+  .static-table-wrapper {
+    height: calc(100vh - 295px);
+  }
+}
+
+.hidden-field {
+  height: 0;
+
+  input {
+    height: 0;
+    min-height: 0;
+    padding: 0;
+    border: 0;
+  }
+
+  label {
+    display: none;
+  }
+}
+
+
+// Component styles
+@import 'containers/IdentityManager/containers/UserLogin/styles';
+@import 'containers/CrmModule/containers/Premise/ListView/styles';
+@import 'containers/CrmModule/containers/Premise/DetailView/styles';
+@import 'core/records/components/Forms/FormModal/styles';
+@import 'core/records/components/Pipeline/styles';
+@import 'shared/components/StageNameTag/styles';
+
+

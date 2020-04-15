@@ -1,0 +1,15 @@
+.premise-record-detail-view {
+
+  .page-header {
+    margin-bottom: 8px;
+  }
+
+  .card-list-item {
+    display: flex;
+    flex-direction: column;
+
+    .ant-divider-horizontal {
+      margin: 10px 0px;
+    }
+  }
+}

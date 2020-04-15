@@ -1,0 +1,71 @@
+set evc-maps evc-map evc_map_channel-termination0/<PON>_101_<T-Cont>_<GEM>_<onu-id-long> scheduler root-if-name "channel-termination 0/<PON>"
+set evc-maps evc-map evc_map_channel-termination0/<PON>_101_<T-Cont>_<GEM>_<onu-id-long> scheduler scheduler-node-name "Data-<onu-id-long>"
+set evc-maps evc-map evc_map_channel-termination0/<PON>_101_<T-Cont>_<GEM>_<onu-id-long> gem-port <GEM>
+set evc-maps evc-map evc_map_channel-termination0/<PON>_101_<T-Cont>_<GEM>_<onu-id-long> enabled true
+set evc-maps evc-map evc_map_channel-termination0/<PON>_101_<T-Cont>_<GEM>_<onu-id-long> evc evc_101
+set evc-maps evc-map evc_map_channel-termination0/<PON>_101_<T-Cont>_<GEM>_<onu-id-long> match-untagged false
+set evc-maps evc-map evc_map_channel-termination0/<PON>_101_<T-Cont>_<GEM>_<onu-id-long> inherit-pri
+set evc-maps evc-map evc_map_channel-termination0/<PON>_101_<T-Cont>_<GEM>_<onu-id-long> uni "channel-termination 0/<PON>"
+
+set subscriber-profiles subscriber-profile dhcp_lineinsertion evc-map evc_map_channel-termination0/<PON>_101_<T-Cont>_<GEM>_<onu-id-long>
+
+set xpon t-conts t-cont "<onu-id-long>-Data" alloc-id <T-Cont>
+set xpon t-conts t-cont "<onu-id-long>-Data" bandwidth-profile <bandwidth-profile>
+set xpon t-conts t-cont "<onu-id-long>-Data" xgem-ports data-xgem-ports data-xgem <GEM> cos 0
+set xpon t-conts t-cont "<onu-id-long>-Data" xgem-ports data-xgem-ports data-xgem <GEM> cos 1
+set xpon t-conts t-cont "<onu-id-long>-Data" xgem-ports data-xgem-ports data-xgem <GEM> cos 2
+set xpon t-conts t-cont "<onu-id-long>-Data" xgem-ports data-xgem-ports data-xgem <GEM> cos 3
+set xpon t-conts t-cont "<onu-id-long>-Data" xgem-ports data-xgem-ports data-xgem <GEM> cos 4
+set xpon t-conts t-cont "<onu-id-long>-Data" xgem-ports data-xgem-ports data-xgem <GEM> cos 5
+set xpon t-conts t-cont "<onu-id-long>-Data" xgem-ports data-xgem-ports data-xgem <GEM> cos 6
+set xpon t-conts t-cont "<onu-id-long>-Data" xgem-ports data-xgem-ports data-xgem <GEM> cos 7
+set xpon t-conts t-cont "<onu-id-long>-Data" xgem-ports data-xgem-ports data-xgem <GEM> encryption true
+set xpon t-conts t-cont "<onu-id-long>-Data" xgem-ports data-xgem-ports data-xgem <GEM> interface "<onu-id-long> subscriber"
+
+set link-table link-table "<onu-id-long>" to-interface "<onu-id-long> subscriber"
+
+set interfaces interface "channel-termination 0/<PON>" tm-root child-scheduler-nodes "scheduler-channel-pair <PON>" priority 0
+set interfaces interface "channel-termination 0/<PON>" tm-root child-scheduler-nodes "scheduler-channel-pair <PON>" weight 1
+set interfaces interface "channel-termination 0/<PON>" tm-root scheduler-node "scheduler-channel-pair <PON>" scheduler-type four-priority-strict-priority
+set interfaces interface "channel-termination 0/<PON>" tm-root scheduler-node "scheduler-channel-pair <PON>" child-scheduler-nodes "Data-<onu-id-long>" priority 2
+set interfaces interface "channel-termination 0/<PON>" tm-root scheduler-node "scheduler-channel-pair <PON>" child-scheduler-nodes "Data-<onu-id-long>" weight 0
+set interfaces interface "channel-termination 0/<PON>" tm-root scheduler-node "scheduler-channel-pair <PON>" scheduling-level 1
+set interfaces interface "channel-termination 0/<PON>" tm-root scheduler-node "Data-<onu-id-long>" scheduler-type four-priority-strict-priority
+set interfaces interface "channel-termination 0/<PON>" tm-root scheduler-node "Data-<onu-id-long>" tc-id-2-queue-id-mapping-profile-name "Scheduler tctoqueue Mapping"
+set interfaces interface "channel-termination 0/<PON>" tm-root scheduler-node "Data-<onu-id-long>" contains-queues true
+set interfaces interface "channel-termination 0/<PON>" tm-root scheduler-node "Data-<onu-id-long>" queue 0 priority 0
+set interfaces interface "channel-termination 0/<PON>" tm-root scheduler-node "Data-<onu-id-long>" queue 0 weight 1
+set interfaces interface "channel-termination 0/<PON>" tm-root scheduler-node "Data-<onu-id-long>" queue 1 priority 1
+set interfaces interface "channel-termination 0/<PON>" tm-root scheduler-node "Data-<onu-id-long>" queue 1 weight 1
+set interfaces interface "channel-termination 0/<PON>" tm-root scheduler-node "Data-<onu-id-long>" queue 2 priority 2
+set interfaces interface "channel-termination 0/<PON>" tm-root scheduler-node "Data-<onu-id-long>" queue 2 weight 1
+set interfaces interface "channel-termination 0/<PON>" tm-root scheduler-node "Data-<onu-id-long>" queue 3 priority 3
+set interfaces interface "channel-termination 0/<PON>" tm-root scheduler-node "Data-<onu-id-long>" queue 3 weight 1
+set interfaces interface "channel-termination 0/<PON>" tm-root scheduler-node "Data-<onu-id-long>" scheduling-level 2
+set interfaces interface "channel-termination 0/<PON>" tm-root scheduler-node "Data-<onu-id-long>" shaper-name "<shaper-name>"
+
+set interfaces interface "onu 1101.<PID>.<onu-id>" performance enable true
+set interfaces interface "onu 1101.<PID>.<onu-id>" onu aes-mode-enable true
+set interfaces interface "onu 1101.<PID>.<onu-id>" onu assigned-tconts "<onu-id-long>-Data"
+set interfaces interface "onu 1101.<PID>.<onu-id>" onu channel-partition ChannelPartition_P<PID>
+set interfaces interface "onu 1101.<PID>.<onu-id>" onu expected-serial-number-string ADTN12345678
+set interfaces interface "onu 1101.<PID>.<onu-id>" onu onu-id <onu-id>
+set interfaces interface "onu 1101.<PID>.<onu-id>" onu preferred-channel-pair "channel-pair 1101.<PID>.15"
+set interfaces interface "onu 1101.<PID>.<onu-id>" enabled true
+set interfaces interface "onu 1101.<PID>.<onu-id>" type adtn-xp:xpon-onu
+set interfaces interface "onu 1101.<PID>.<onu-id>" description "<onu-id-long> - Unassigned"
+
+set interfaces interface onu-subscr-if-1101.<PID>.<onu-id>.0.eth.1.phy ethernet phy auto-negotiation enable true
+set interfaces interface onu-subscr-if-1101.<PID>.<onu-id>.0.eth.1.phy ethernet phy duplex full
+set interfaces interface onu-subscr-if-1101.<PID>.<onu-id>.0.eth.1.phy ethernet phy speed 1.000
+set interfaces interface onu-subscr-if-1101.<PID>.<onu-id>.0.eth.1.phy performance enable true
+set interfaces interface onu-subscr-if-1101.<PID>.<onu-id>.0.eth.1.phy enabled true
+set interfaces interface onu-subscr-if-1101.<PID>.<onu-id>.0.eth.1.phy type ianaift:ethernetCsmacd
+set interfaces interface onu-subscr-if-1101.<PID>.<onu-id>.0.eth.1.phy description "<onu-id-long> - 621i Port 1"
+
+set interfaces interface "<onu-id-long>" subif-lower-layer interface onu-subscr-if-1101.<PID>.<onu-id>.0.eth.1.phy
+set interfaces interface "<onu-id-long>" enabled true
+set interfaces interface "<onu-id-long>" type adtn-bbfift:vlan-sub-interface
+set interfaces interface "<onu-id-long> subscriber" olt-v-enet lower-layer-interface "onu 1101.<PID>.<onu-id>"
+set interfaces interface "<onu-id-long> subscriber" enabled true
+set interfaces interface "<onu-id-long> subscriber" type adtn-xp:xpon-olt-v-enet

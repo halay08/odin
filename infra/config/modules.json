@@ -1,0 +1,114 @@
+[
+  {
+    "name": "odin-api-billing",
+    "label": "BillingModule",
+    "path": "/BillingModule",
+    "ingress_prefix": "api",
+    "ingress_issuer": "none"
+  },
+  {
+    "name": "odin-api-connect",
+    "label": "ConnectModule",
+    "path": "/ConnectModule",
+    "ingress_prefix": "api",
+    "ingress_issuer": "none"
+  },
+  {
+    "name": "odin-api-crm",
+    "label": "CrmModule",
+    "path": "/CrmModule",
+    "ingress_prefix": "api",
+    "ingress_issuer": "letsencrypt"
+  },
+  {
+    "name": "odin-api-field-service",
+    "label": "FieldServiceModule",
+    "path": "/FieldServiceModule",
+    "ingress_prefix": "api",
+    "ingress_issuer": "none"
+  },
+  {
+    "name": "odin-api-identity",
+    "label": "IdentityModule",
+    "path": "/IdentityModule",
+    "ingress_prefix": "api",
+    "ingress_issuer": "none"
+  },
+  {
+    "name": "odin-api-logging",
+    "label": "AuditModule",
+    "path": "/AuditModule",
+    "ingress_prefix": "api",
+    "ingress_issuer": "none"
+  },
+  {
+    "name": "odin-api-notifications",
+    "label": "NotificationModule",
+    "path": "/NotificationModule",
+    "ingress_prefix": "api",
+    "ingress_issuer": "none"
+  },
+  {
+    "name": "odin-api-orders",
+    "label": "OrderModule",
+    "path": "/OrderModule",
+    "ingress_prefix": "api",
+    "ingress_issuer": "none"
+  },
+  {
+    "name": "odin-api-product-catalog",
+    "label": "ProductModule",
+    "path": "/ProductModule",
+    "ingress_prefix": "api",
+    "ingress_issuer": "none"
+  },
+  {
+    "name": "odin-api-projects",
+    "label": "ProjectModule",
+    "path": "/ProjectModule",
+    "ingress_prefix": "api",
+    "ingress_issuer": "none"
+  },
+  {
+    "name": "odin-api-schema-manager",
+    "label": "SchemaModule",
+    "path": "/SchemaModule",
+    "ingress_prefix": "api",
+    "ingress_issuer": "none"
+  },
+  {
+    "name": "odin-api-search",
+    "label": "SearchModule",
+    "path": "/SearchModule",
+    "ingress_prefix": "api",
+    "ingress_issuer": "none"
+  },
+  {
+    "name": "odin-api-service",
+    "label": "ServiceModule",
+    "path": "/ServiceModule",
+    "ingress_prefix": "api",
+    "ingress_issuer": "none"
+  },
+  {
+    "name": "odin-api-support",
+    "label": "SupportModule",
+    "path": "/SupportModule",
+    "ingress_prefix": "api",
+    "ingress_issuer": "none"
+  },
+  {
+    "name": "odin-platform-desktop",
+    "label": "",
+    "path": "/",
+    "ingress_prefix": "app",
+    "ingress_issuer": "letsencrypt"
+  },
+  {
+    "name": "odin-platform-mobile",
+    "label": "",
+    "path": "/",
+    "ingress_prefix": "mobile",
+    "ingress_issuer": "letsencrypt"
+  }
+]

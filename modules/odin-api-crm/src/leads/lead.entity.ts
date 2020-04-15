@@ -1,0 +1,83 @@
+import { SchemaColumnCreateUpdateDto } from '@d19n/models/dist/schema-manager/schema/column/dto/schema.column.create.update.dto';
+import { SchemaColumnTypes } from '@d19n/models/dist/schema-manager/schema/column/types/schema.column.types';
+import { SchemaColumnValidatorTypes } from '@d19n/models/dist/schema-manager/schema/column/validator/schema.column.validator.types';
+
+export const columns: SchemaColumnCreateUpdateDto[] = [
+    {
+        name: 'Type',
+        label: 'type',
+        description: 'Type of lead',
+        type: SchemaColumnTypes.ENUM,
+        position: 1,
+        isStatic: false,
+        isHidden: false,
+        isTitleColumn: false,
+        isVisibleInTables: false,
+        options: [
+            { label: 'Business', value: 'BUSINESS', position: 0 },
+            { label: 'Residential', value: 'RESIDENTIAL', position: 1 },
+        ],
+        validators: [ SchemaColumnValidatorTypes.REQUIRED.name ],
+    }, {
+        name: 'Source',
+        label: 'source',
+        description: 'Lead source',
+        type: SchemaColumnTypes.ENUM,
+        position: 2,
+        isStatic: false,
+        isHidden: false,
+        isTitleColumn: false,
+        isVisibleInTables: false,
+        options: [
+            { label: 'Website', value: 'WEBSITE', position: 0 },
+            { label: 'Facebook', value: 'FACEBOOK', position: 1 },
+            { label: 'Twitter', value: 'TWITTER', position: 2 },
+            { label: 'Referral', value: 'REFERRAL', position: 3 },
+            { label: 'Phone', value: 'PHONE', position: 4 },
+        ],
+        validators: [ SchemaColumnValidatorTypes.REQUIRED.name ],
+    },
+    {
+        name: 'IsHot',
+        label: 'hot',
+        description: 'is this a hot lead',
+        type: SchemaColumnTypes.BOOLEAN,
+        position: 3,
+        isStatic: true,
+        isHidden: false,
+        isTitleColumn: false,
+        isStatusColumn: false,
+        isVisibleInTables: false,
+        validators: [],
+    },
+    {
+        name: 'TotalValue',
+        label: 'total value',
+        description: 'total opportunity value',
+        type: SchemaColumnTypes.CURRENCY,
+        position: 4,
+        isStatic: true,
+        isHidden: false,
+        isTitleColumn: false,
+        isVisibleInTables: false,
+        defaultValue: 0,
+        validators: [ SchemaColumnValidatorTypes.NUMBER_CURRENCY.name ],
+    },
+    {
+        name: 'EmailAddress',
+        label: 'email address',
+        description: 'email address',
+        type: SchemaColumnTypes.EMAIL,
+        position: 5,
+        isStatic: true,
+        isHidden: false,
+        isTitleColumn: false,
+        isVisibleInTables: false,
+        validators: [
+            SchemaColumnValidatorTypes.REQUIRED.name,
+            SchemaColumnValidatorTypes.UNIQUE.name,
+            SchemaColumnValidatorTypes.EMAIL.name,
+        ],
+    },
+];
+

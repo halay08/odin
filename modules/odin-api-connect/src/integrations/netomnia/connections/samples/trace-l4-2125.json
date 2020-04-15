@@ -1,0 +1,71 @@
+{
+    "trace": [
+        {
+            tubeFibreKey: 'T1:F1',
+            inClosureType: 'L4',
+            isLoop: false,
+            closureId: '66326e95-f773-4981-8e76-43b7780dbc5d',
+            fibreState: null,
+            closureOutExt: '5122',
+            closureInExt: '2125',
+            cableInExt: '31157',
+            cableInId: 'ca8b714a-f17b-41e1-89c2-dca77e36a31b',
+            fibreInId: '339c0e75-a9f8-40a4-a715-403ae636d908',
+            tubeInId: 'cf7f458d-2363-4b4e-812f-ef4684162c2d'
+        },
+        {
+            tubeFibreKey: 'T1:F1',
+            outClosureType: 'L3',
+            isLoop: true,
+            fibreConnectionId: 'db19e459-7981-4687-a2a5-9d14ec7d4375',
+            fibreState: null,
+            closureOutExt: '4731',
+            closureInExt: '5122',
+            cableInExt: '659',
+            cableOutExt: '75222',
+            closureId: '71131241-1b93-4034-8011-9eacca78d97f',
+            cableOutId: 'a65b37d0-f0cf-4735-bedc-c7e817a10d47',
+            cableInId: 'a6305464-cab1-4ec1-8197-7ba102a8d4b8',
+            fibreInId: '9b8e137e-8616-403f-a575-772c3096d975',
+            fibreOutId: 'fd93cfc8-2ed9-4c60-9d72-e4451d1a5a25',
+            tubeInId: '2e81aa89-f5a6-48f4-b42a-74267a1b2f33',
+            tubeOutId: 'a0537f99-c86e-4b1b-b5b0-6c86fff45a75'
+        },
+        {
+            tubeFibreKey: 'T1:F1',
+            outClosureType: 'L3',
+            isLoop: true,
+            fibreConnectionId: '73125ea7-d14c-4c78-b58a-1899bf909bb8',
+            fibreState: null,
+            closureOutExt: '4730',
+            closureInExt: '4731',
+            cableInExt: '660',
+            cableOutExt: '75216',
+            closureId: '9d7764ee-f9e3-415a-af38-dce71aa3c612',
+            cableOutId: '1807c48d-b246-410c-9676-5fe6c1d00c2a',
+            cableInId: '2ce6ca0f-f165-4143-8705-1c8fb998758a',
+            fibreInId: 'b325d968-abea-475f-b804-07461def24ee',
+            fibreOutId: 'a600c7f3-badd-4c2e-b8d9-20a6ebd069c5',
+            tubeInId: '15691f69-9cd8-44a4-b9cf-9513fd3857a7',
+            tubeOutId: '1aea5bce-47f3-43ca-ad1b-52ebee7ff031'
+        },
+        {
+            tubeFibreKey: 'T1:F1',
+            outClosureType: 'L2',
+            isLoop: true,
+            fibreConnectionId: null,
+            fibreState: null,
+            closureOutExt: '4729',
+            closureInExt: '4730',
+            cableInExt: '131',
+            cableOutExt: null,
+            closureId: '3d14e91d-b109-4f89-8a8a-d6cbea9382b2',
+            cableOutId: null,
+            cableInId: 'ed9f1129-4eb6-479c-9131-5f6888cbbbf6',
+            fibreInId: '6ca7fb12-ff28-41f0-a8a7-adc685459c09',
+            tubeInId: '50f3b225-aabe-4ec6-a507-e1376a8a45f8',
+            tubeOutId: null,
+            fibreOutId: null
+        }
+    ]
+}

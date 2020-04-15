@@ -1,0 +1,66 @@
+[submodule "modules/odin-api-orders"]
+	path = modules/odin-api-orders
+	url = git@github.com:d19n-llc/odin-api-orders.git
+[submodule "modules/odin-api-identity"]
+	path = modules/odin-api-identity
+	url = git@github.com:d19n-llc/odin-api-identity.git
+[submodule "modules/odin-models"]
+	path = modules/odin-models
+	url = git@github.com:d19n-llc/odin-models.git
+[submodule "modules/odin-api-client"]
+	path = modules/odin-api-client
+	url = git@github.com:d19n-llc/odin-api-client.git
+[submodule "modules/odin-api-template"]
+	path = modules/odin-api-template
+	url = git@github.com:d19n-llc/odin-api-template.git
+[submodule "modules/odin-api-common"]
+	path = modules/odin-api-common
+	url = git@github.com:d19n-llc/odin-api-common.git
+[submodule "modules/odin-api-crm"]
+	path = modules/odin-api-crm
+	url = git@github.com:d19n-llc/odin-api-crm.git
+[submodule "modules/odin-api-schema-manager"]
+	path = modules/odin-api-schema-manager
+	url = git@github.com:d19n-llc/odin-api-schema-manager.git
+[submodule "modules/odin-api-settings"]
+	path = modules/odin-api-settings
+	url = git@github.com:d19n-llc/odin-api-settings.git
+[submodule "modules/odin-api-logging"]
+	path = modules/odin-api-logging
+	url = git@github.com:d19n-llc/odin-api-logging.git
+[submodule "modules/odin-api-product-catalog"]
+	path = modules/odin-api-product-catalog
+	url = git@github.com:d19n-llc/odin-api-product-catalog.git
+[submodule "modules/odin-api-notifications"]
+	path = modules/odin-api-notifications
+	url = git@github.com:d19n-llc/odin-api-notifications.git
+[submodule "modules/odin-api-connect"]
+	path = modules/odin-api-connect
+	url = git@github.com:d19n-llc/odin-api-connect.git
+[submodule "modules/odin-api-billing"]
+	path = modules/odin-api-billing
+	url = git@github.com:d19n-llc/odin-api-billing.git
+[submodule "modules/odin-api-search"]
+	path = modules/odin-api-search
+	url = git@github.com:d19n-llc/odin-api-search.git
+[submodule "modules/odin-platform-mobile"]
+	path = modules/odin-platform-mobile
+	url = git@github.com:d19n-llc/odin-platform-mobile.git
+[submodule "modules/odin-platform-desktop"]
+	path = modules/odin-platform-desktop
+	url = git@github.com:d19n-llc/odin-platform-desktop.git
+[submodule "modules/odin-api-support"]
+	path = modules/odin-api-support
+	url = git@github.com:d19n-llc/odin-api-support.git
+[submodule "modules/odin-api-service"]
+	path = modules/odin-api-service
+	url = git@github.com:d19n-llc/odin-api-service.git
+[submodule "modules/odin-api-field-service"]
+	path = modules/odin-api-field-service
+	url = git@github.com:d19n-llc/odin-api-field-service.git
+[submodule "modules/odin-api-projects"]
+	path = modules/odin-api-projects
+	url = git@github.com:d19n-llc/odin-api-projects.git
+[submodule "modules/odin-gis-server"]
+	path = modules/odin-gis-server
+	url = git@github.com:d19n-llc/odin-gis-server.git

@@ -1,0 +1,54 @@
+/* Feature Create Modal */
+.FeatureCreateModal .ant-card:hover{
+  border: 1px solid #1890ff;
+  cursor: pointer;
+}
+.FeatureCreateModal .ant-modal-footer{
+  display:none;
+}
+
+
+/* Feature Select Modal */
+.FeatureSelectModal .ant-card:hover{
+  border: 1px solid #1890ff;
+  cursor: pointer;
+}
+
+/* Add Point Modal */
+.addPointModal .ant-card{
+  margin-bottom: 10px;
+}
+
+.addPointModal .ant-card:hover{
+  border: 1px solid #1890ff;
+  cursor: pointer;
+}
+
+.addPointModal .ant-modal-footer{
+  display:none;
+}
+
+/* Add Line Modal */
+.addLineModal .ant-card{
+  margin-bottom: 10px;
+}
+
+.addLineModal .ant-card:hover{
+  border: 1px solid #1890ff;
+  cursor: pointer;
+}
+
+.addLineModal .ant-modal-footer{
+  display:none;
+}
+
+
+h3 {
+  margin-bottom: 0;
+}
+
+@media (max-width: 767px) {
+  .ant-modal .ant-card{
+    font-size: 12px;
+  }
+}

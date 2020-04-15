@@ -1,0 +1,7 @@
+.env
+.npmrc
+.idea
+src
+node_modules
+ormconfig.json
+ormconfig.prod.json

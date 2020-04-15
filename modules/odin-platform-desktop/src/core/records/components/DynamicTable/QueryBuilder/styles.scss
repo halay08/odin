@@ -1,0 +1,50 @@
+.filter-form {
+  border-radius: 5px;
+  padding: 20px;
+  border: 1px dashed #cecece;
+  margin-bottom: 20px;
+}
+
+.query-builder {
+
+  .pipeline-wrapper {
+    display: flex;
+    border: none;
+
+    .filter-active {
+      background: #0095ff;
+      color: #fff;
+    }
+
+    .ant-select-selector {
+      border: none;
+      border-right: 1px solid #d9d9d9;
+    }
+  }
+
+  .form {
+    .form-list-wrapper {
+      overflow: auto;
+
+      .form-list-space {
+        display: flex;
+        border: 1px solid #dadada;
+        border-radius: 8px;
+        padding: 8px;
+        margin-bottom: 8px;
+
+        .form-item-wrapper {
+          display: flex;
+          flex-direction: column;
+          margin-bottom: 8px;
+
+          .form-item {
+            min-width: 230px;
+            max-width: 300px;
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}

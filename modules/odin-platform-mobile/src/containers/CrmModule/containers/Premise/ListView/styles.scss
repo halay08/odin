@@ -1,0 +1,54 @@
+
+
+.action-dropdown button {
+  border: 0;
+}
+
+.action-dropdown .ant-btn {
+  box-shadow: none;
+}
+
+.action-dropdown   .ant-dropdown-menu li{
+  padding: 3px 7px !important;
+}
+
+.dropdown-btn > .ant-dropdown-trigger  {
+  border: none;
+}
+
+.dropdown-btn > .ant-dropdown-trigger > span {
+  background-color: white !important;
+}
+
+.premise-list-view {
+
+  .list {
+    background-color: white;
+    height: 100%;
+    max-height: 90vh;
+    overflow: auto;
+
+    .list-item-data {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+
+      .list-item-with-label {
+        display: flex;
+        flex-direction: row;
+
+        .label {
+          margin-right: 8px;
+          text-transform: capitalize;
+        }
+      }
+    }
+  }
+
+  .search-input {
+    margin-top: 8px;
+    margin-bottom: 8px;
+  }
+
+
+}

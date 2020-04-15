@@ -1,0 +1,310 @@
+@import "styles/colors";
+
+.blurred {
+  filter: blur(6px);
+}
+
+#root {
+  height: 100%;
+  bottom: 0;
+  /*background: rgb(176, 196, 223);*/
+  background: #dae0ea;
+}
+
+body {
+  height: 100%;
+  bottom: 0;
+  /*background: rgb(176, 196, 223);*/
+  background: #dae0ea;
+}
+
+.app-container {
+  height: 100%;
+  bottom: 0;
+  /*background: rgb(176, 196, 223);*/
+  background: #dae0ea;
+}
+
+.ant-menu-horizontal {
+  border-bottom: none;
+}
+
+.ant-layout {
+  background: #dae0ea;
+}
+
+// override ant
+@media (max-width: 640px) {
+  .ant-col-xs-12 {
+    max-width: 100%;
+    flex: auto;
+  }
+}
+
+.ant-table-container {
+  overflow: auto
+}
+
+.ant-table-header {
+  .ant-table-thead {
+    .ant-table-cell {
+      background-color: #fafaf9;
+      text-transform: capitalize;
+      color: #514f4d;
+      padding: 0.25rem 0.5rem;
+      font-weight: 700;
+      line-height: normal;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+  }
+}
+
+.ant-descriptions-item-label {
+  font-weight: bold;
+  font-size: 13.5px;
+}
+
+.ant-table-row {
+  .ant-table-cell {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+}
+
+.ant-card-body {
+  padding: 10px;
+}
+
+.ant-empty-image {
+  height: 50px;
+}
+
+.ant-empty-normal {
+  margin: 0px;
+}
+
+.ant-layout {
+  height: 100%;
+
+  .record-detail-view {
+    background: none;
+  }
+}
+
+.ant-layout-header {
+  height: 38px;
+  line-height: 38px;
+  padding: 0px;
+}
+
+.page-layout {
+  .header {
+    width: 100%;
+    left: 0;
+    top: 0;
+    right: 0;
+    z-index: 1000;
+  }
+
+  .page-content {
+    overflow: auto;
+  }
+
+  .sider-menu {
+    overflow: auto;
+    border-right: 1px solid #dadada;
+
+    .ant-layout-sider-trigger {
+      border-right: 1px solid #dadada;
+    }
+  }
+}
+
+
+.data-table-page-header {
+  padding: 1rem;
+  border-bottom: 1px solid #dddbda;
+  -moz-border-radius-topright: .25rem;
+  -moz-border-radius-topleft: .25rem;
+  background: #f3f2f2;
+  box-shadow: none;
+}
+
+.page-content {
+  margin-top: 8px;
+}
+
+.custom-static-search-wrapper {
+  display: flex;
+  width: 400px;
+
+  .ant-input {
+    padding-right: 20px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  .undefined-action {
+    position: relative;
+    top: 5px;
+    right: 20px;
+  }
+}
+
+.detail-body-wrapper {
+  background: white;
+  margin-top: .25rem;
+  padding: 10px;
+  border-radius: .25rem;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.1);
+  border: 1px solid #dddbda;
+}
+
+.record-detail-view {
+  margin-top: 16px;
+  margin-right: 16px;
+  margin-left: 16px;
+  background: #f1f3f7;
+
+  .record-pipeline {
+    margin-bottom: 16px;
+  }
+
+  .record-detail-left-panel {
+    height: 100%;
+    margin-bottom: 16px;
+    //min-height: 90vh;
+  }
+
+  .record-detail-center-panel {
+    height: 100%;
+    margin-bottom: 16px;
+  }
+
+  .record-detail-right-panel {
+    height: 100%;
+    margin-bottom: 16px;
+  }
+
+}
+
+.identity-manager-wrapper {
+  .ant-tabs-nav-wrap {
+    padding-left: 10px;
+  }
+
+  .static-table-wrapper {
+    height: calc(100vh - 298px);
+  }
+}
+
+.hidden-field {
+  height: 0;
+
+  input {
+    height: 0;
+    min-height: 0;
+    padding: 0;
+    border: 0;
+  }
+
+  label {
+    display: none;
+  }
+}
+
+.custom-order-card-wrapper {
+  .ant-card-head {
+    padding-left: .5rem
+  }
+}
+
+.cancel-appointment-modal {
+  label {
+    text-transform: capitalize;
+    font-weight: 600
+  }
+
+  .ant-col {
+    width: 100%
+  }
+
+  .steps-content {
+    padding: 1rem;
+    margin-top: 1rem
+  }
+}
+
+.steps-content {
+  margin-top: 1rem;
+}
+
+.ant-card {
+  padding: 0;
+  background: #fff;
+  border: 1px solid #dddbda;
+  border-radius: .25rem;
+  background-clip: padding-box;
+  box-shadow: 1px 1px 3px 0 rgba(0, 0, 0, .1);
+
+  .ant-card-head-title {
+    font-size: 1rem;
+    line-height: 1.25;
+    color: #080707
+  }
+}
+
+.embedded-form {
+  textarea {
+    resize: none !important;
+  }
+  label {
+    text-transform: capitalize;
+    font-weight: 600
+  }
+
+  .ant-col {
+    width: 100%
+  }
+
+  .steps-content {
+    padding: 1rem;
+    margin-top: 1rem
+  }
+}
+
+.page-header {
+
+  border-radius: .25rem;
+
+}
+
+@import 'cst-theme';
+
+@import 'containers/IdentityManagerModule/containers/UserLogin/styles.scss';
+@import 'containers/CrmModule/containers/Premise/DetailView/styles';
+@import 'containers/FieldServiceModule/containers/ServiceAppointmentCalendar/styles';
+@import 'containers/PlanningModule/containers/Map/styles';
+@import 'containers/ProjectModule/containers/Feature/ClosureConfigurator/CableConfigurator/styles';
+@import 'containers/ProjectModule/containers/Feature/ClosureConfigurator/FibreConfigurator/styles';
+
+@import 'core/records/components/Forms/FormModal/styles';
+@import 'core/records/components/Pipeline/styles';
+@import 'core/appointments/components/styles';
+@import 'core/records/components/DynamicTable/QueryBuilder/styles';
+@import 'core/records/components/ListView/styles';
+@import 'core/navigation/styles';
+@import 'core/recordsAssociations/components/AssociationDataTable/styles';
+@import 'core/recordsAssociations/components/ListActions/styles';
+@import 'core/recordsAssociations/components/AssociationCardWithTabsList/styles';
+@import 'core/recordsAssociations/components/AssociationDescriptionList/styles';
+@import 'core/records/components/DetailPanelLeft/styles';
+
+@import 'shared/components/StepView/styles';
+@import 'shared/components/StageNameTag/styles.scss';
+
+

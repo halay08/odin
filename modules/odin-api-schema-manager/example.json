@@ -1,0 +1,16 @@
+{
+  "entity": "BillingModule:Transaction",
+  "parentRecordId": "73677cb5-83e0-4a90-8d36-1879187149e7",
+  "properties": {
+    "Name": "22 Page Street, LONDON, SW1P 4EN",
+    "Type": "PAYMENT",
+    "CurrencyCode": "GBP",
+    "Amount": "30.00",
+    "ExternalRef": "PM001EJM316SNG"
+  },
+  "associations": [
+    "73677cb5-83e0-4a90-8d36-1879187149e7",
+    "fd57f64c-e5ae-4347-a88f-7362a4dadffc",
+    "ecd1a1d5-f5e9-4f37-876c-edf0d0ca8998"
+  ]
+}

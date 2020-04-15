@@ -1,0 +1,41 @@
+{
+    "identityName": "GOCARDLESS",
+    "accountNumber": "55779911",
+    "branchCode": "200000",
+    "leadId": "33c71595-8d9e-4e6e-bb73-d7844095e9ca",
+    "contactId": "96eecb2e-1a08-4000-bf8e-6b4219e0ea38",
+    "products": [
+        {
+            "quantity": 1,
+            "childRecordId": "0ce63f22-a4b0-49c5-bc2b-23cb154ac031",
+            "moduleName": "ProductModule",
+            "entityName": "Product"
+        },
+        {
+            "quantity": 1,
+            "childRecordId": "b3478938-5af4-4a51-a5cc-15d25dbf3e45",
+            "moduleName": "ProductModule",
+            "entityName": "Product"
+        },
+        {
+            "quantity": 1,
+            "childRecordId": "baa9cda3-4a38-4500-9828-5e29f5cb16c0",
+            "moduleName": "ProductModule",
+            "entityName": "Product"
+        }
+    ],
+    "discount": {
+        "label": "Discount",
+        "moduleName": "ProductModule",
+        "entityName": "Discount",
+        "childRecordId": "74c0f4d8-7bdb-4185-af8b-30c0215478f6"
+    },
+    "orderProperties": {
+        "TransferPhone": ""
+    },
+    "contactProperties": {},
+    "appointment": {
+        "Date": "2020-07-04",
+        "TimeBlock": "AM"
+    }
+}

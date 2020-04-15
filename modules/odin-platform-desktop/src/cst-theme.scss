@@ -1,0 +1,43 @@
+.netomnia-theme-menu {
+  background: #e00;
+  color: #fff;
+
+  .ant-menu-submenu-open {
+    color: darkred;
+    border-bottom: 2px solid darkred;
+
+    .ant-menu-submenu-title {
+      color: darkred;
+    }
+
+  }
+
+  .ant-menu-submenu-active {
+    color: darkred;
+    border-bottom: 2px solid darkred;
+
+    .ant-menu-submenu-title {
+      color: darkred;
+    }
+  }
+
+
+  .ant-menu-submenu:hover {
+    color: darkred;
+    border-bottom: 2px solid darkred;
+  }
+
+  .ant-menu-submenu-title:hover {
+    color: darkred;
+  }
+
+}
+
+
+.youfibre-theme-menu {
+
+  background: #051c2c;
+  color: #fff;
+  font-weight: 600;
+}
+

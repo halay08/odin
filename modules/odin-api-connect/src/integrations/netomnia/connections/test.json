@@ -1,0 +1,32 @@
+[
+    {
+        "id": 519,
+        "type": "Access",
+        "closures": null,
+        "length": 12.4180739091023
+    },
+    {
+        "id": 520,
+        "type": "Access",
+        "closures": null,
+        "length": 77.4407146696517
+    },
+    {
+        "id": 47,
+        "type": "Distribution",
+        "closures": [
+            {
+                "id": 265,
+                "type": "L2",
+                "distFromStart": 162.2667946886077
+            }
+        ],
+        "length": 166.968294197262
+    },
+    {
+        "id": 518,
+        "type": "Access",
+        "closures": null,
+        "length": 48.5963087286858
+    }
+]

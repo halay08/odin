@@ -1,0 +1,35 @@
+{
+    "recordNumber": "TN--16",
+    "recordId": "fbe11cd4-1673-4e44-87ff-d54a52d618c8",
+    "subject": "New Transaction",
+    "contactFirstName": "Frank",
+    "transaction": {
+        "Status": null,
+        "ExternalRef": "PM001EJM6SXNVW",
+        "Amount": "21.00",
+        "CurrencyCode": "GBP",
+        "Type": "PAYMENT",
+        "Name": "22 Page Street, LONDON, SW1P 4EN"
+    },
+    "invoice": {
+        "Subtotal": "23.00",
+        "Balance": "0.00",
+        "TotalDue": "21.00",
+        "TotalTaxAmount": "0.00",
+        "DueDate": "2020-07-07",
+        "IssuedDate": "2020-07-04",
+        "Status": "PAID",
+        "Name": "22 Page Street, LONDON, SW1P 4EN",
+        "DeliveryDate": null,
+        "BillingStartDate": null,
+        "BillingTerms": "NET_3",
+        "TotalDiscounts": "2.00",
+        "TotalTax": null,
+        "TotalPrice": null,
+        "AmountDue": null,
+        "TaxRate": null,
+        "VATNumber": null,
+        "CurrencyCode": "GBP"
+    },
+    "organizationName": "YouFibre"
+}

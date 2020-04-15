@@ -1,0 +1,360 @@
+_CREATE_CONNECTION FibreConnection {
+  closureId: 'bbb8cf94-5b23-44c8-8fb4-a64108a7de3a',
+  slotId: '909cdf5f-e74b-4c20-bbb9-2ba7a3dc103a',
+  trayModelId: '4d3eb4d3-a169-4609-91f6-82f254b432a8',
+  trayId: '42a0555d-cf0c-4274-aada-0478e4baeb22',
+  trayInId: '42a0555d-cf0c-4274-aada-0478e4baeb22',
+  trayOutId: '42a0555d-cf0c-4274-aada-0478e4baeb22',
+  traySpliceId: 'b44750e2-ec5b-4490-8941-6114c13213ab',
+  traySplitterId: null,
+  inClosureExt: '1623',
+  outClosureExt: '78938',
+  cableInId: '06f01a31-1aba-4316-8ef2-c2b20ef7ad21',
+  cableInExternalRef: '257085',
+  tubeFibreIn: 'T1:F4',
+  tubeInId: 'f4f18750-910a-4e84-8213-1937e9dccc0d',
+  fibreInId: '529a54aa-7b7d-43f0-940f-d80ce02ad6d7',
+  tubeFibreOut: 'T1:F1',
+  cableOutId: 'f8211521-3a59-4570-b3cf-06d905d9ccaa',
+  cableOutExternalRef: '257087',
+  tubeOutId: 'eb4983b3-26b5-46ad-a24a-c54da86f9601',
+  fibreOutId: '05e987ca-5c24-471f-9311-258bedeaf1d1'
+}
+newRecord DbRecordCreateUpdateDto {
+  entity: 'ProjectModule:FeatureConnection',
+  type: 'FIBRE',
+  properties: {
+    OutClosureExternalRef: '78938',
+    InClosureExternalRef: '1623',
+    SlotId: '909cdf5f-e74b-4c20-bbb9-2ba7a3dc103a',
+    TrayModelId: '4d3eb4d3-a169-4609-91f6-82f254b432a8',
+    TrayId: '42a0555d-cf0c-4274-aada-0478e4baeb22',
+    TrayInId: '42a0555d-cf0c-4274-aada-0478e4baeb22',
+    TrayOutId: '42a0555d-cf0c-4274-aada-0478e4baeb22',
+    TraySpliceId: 'b44750e2-ec5b-4490-8941-6114c13213ab',
+    TraySplitterId: null,
+    CableInId: '06f01a31-1aba-4316-8ef2-c2b20ef7ad21',
+    CableInExternalRef: '257085',
+    TubeFibreIn: 'T1:F4',
+    TubeInId: 'f4f18750-910a-4e84-8213-1937e9dccc0d',
+    FibreInId: '529a54aa-7b7d-43f0-940f-d80ce02ad6d7',
+    CableOutExternalRef: '257087',
+    TubeFibreOut: 'T1:F1',
+    CableOutId: 'f8211521-3a59-4570-b3cf-06d905d9ccaa',
+    TubeOutId: 'eb4983b3-26b5-46ad-a24a-c54da86f9601',
+    FibreOutId: '05e987ca-5c24-471f-9311-258bedeaf1d1'
+  },
+  associations: [
+    { recordId: 'bbb8cf94-5b23-44c8-8fb4-a64108a7de3a' },
+    { recordId: '909cdf5f-e74b-4c20-bbb9-2ba7a3dc103a' },
+    { recordId: '4d3eb4d3-a169-4609-91f6-82f254b432a8' },
+    { recordId: '42a0555d-cf0c-4274-aada-0478e4baeb22' },
+    { recordId: '42a0555d-cf0c-4274-aada-0478e4baeb22' },
+    { recordId: '42a0555d-cf0c-4274-aada-0478e4baeb22' },
+    { recordId: '06f01a31-1aba-4316-8ef2-c2b20ef7ad21' },
+    { recordId: 'f4f18750-910a-4e84-8213-1937e9dccc0d' },
+    { recordId: '529a54aa-7b7d-43f0-940f-d80ce02ad6d7' },
+    { recordId: 'f8211521-3a59-4570-b3cf-06d905d9ccaa' },
+    { recordId: 'eb4983b3-26b5-46ad-a24a-c54da86f9601' },
+    { recordId: '05e987ca-5c24-471f-9311-258bedeaf1d1' },
+    { recordId: null },
+    { recordId: 'b44750e2-ec5b-4490-8941-6114c13213ab' }
+  ]
+}
+createRes {
+  statusCode: 201,
+  successful: true,
+  data: {
+    date: '2021-04-15T01:18:14.934Z',
+    queued: 1,
+    query: { queueAndRelate: 'true' }
+  }
+}
+_CREATE_CONNECTION FibreConnection {
+  closureId: '40c5d7a8-725c-4e42-bba8-7f0f736ea999',
+  slotId: '3c33ca5a-4f94-432b-b148-4beb1dc005b9',
+  trayModelId: '4d3eb4d3-a169-4609-91f6-82f254b432a8',
+  trayId: '0edb0c67-c541-4781-b4e0-98cbb2ee2e52',
+  trayInId: '0edb0c67-c541-4781-b4e0-98cbb2ee2e52',
+  trayOutId: '0edb0c67-c541-4781-b4e0-98cbb2ee2e52',
+  traySpliceId: 'a0777b42-9183-4940-847f-92dcd017d499',
+  traySplitterId: null,
+  inClosureExt: '78938',
+  outClosureExt: '4929',
+  cableInId: '5adeea5a-8cc4-42b6-a94c-996c6dc789ef',
+  cableInExternalRef: '76000',
+  tubeFibreIn: 'T1:F4',
+  tubeInId: 'e717d38f-3e4e-422d-a517-ff7a4d951ce7',
+  fibreInId: 'dc365a3c-0cd0-46ed-b905-c0077fa50f4c',
+  tubeFibreOut: 'T1:F1',
+  cableOutId: '06f01a31-1aba-4316-8ef2-c2b20ef7ad21',
+  cableOutExternalRef: '257085',
+  tubeOutId: 'f4f18750-910a-4e84-8213-1937e9dccc0d',
+  fibreOutId: '33aa7f52-c1dd-4f31-a8c0-fa3960da76d7'
+}
+newRecord DbRecordCreateUpdateDto {
+  entity: 'ProjectModule:FeatureConnection',
+  type: 'FIBRE',
+  properties: {
+    OutClosureExternalRef: '4929',
+    InClosureExternalRef: '78938',
+    SlotId: '3c33ca5a-4f94-432b-b148-4beb1dc005b9',
+    TrayModelId: '4d3eb4d3-a169-4609-91f6-82f254b432a8',
+    TrayId: '0edb0c67-c541-4781-b4e0-98cbb2ee2e52',
+    TrayInId: '0edb0c67-c541-4781-b4e0-98cbb2ee2e52',
+    TrayOutId: '0edb0c67-c541-4781-b4e0-98cbb2ee2e52',
+    TraySpliceId: 'a0777b42-9183-4940-847f-92dcd017d499',
+    TraySplitterId: null,
+    CableInId: '5adeea5a-8cc4-42b6-a94c-996c6dc789ef',
+    CableInExternalRef: '76000',
+    TubeFibreIn: 'T1:F4',
+    TubeInId: 'e717d38f-3e4e-422d-a517-ff7a4d951ce7',
+    FibreInId: 'dc365a3c-0cd0-46ed-b905-c0077fa50f4c',
+    CableOutExternalRef: '257085',
+    TubeFibreOut: 'T1:F1',
+    CableOutId: '06f01a31-1aba-4316-8ef2-c2b20ef7ad21',
+    TubeOutId: 'f4f18750-910a-4e84-8213-1937e9dccc0d',
+    FibreOutId: '33aa7f52-c1dd-4f31-a8c0-fa3960da76d7'
+  },
+  associations: [
+    { recordId: '40c5d7a8-725c-4e42-bba8-7f0f736ea999' },
+    { recordId: '3c33ca5a-4f94-432b-b148-4beb1dc005b9' },
+    { recordId: '4d3eb4d3-a169-4609-91f6-82f254b432a8' },
+    { recordId: '0edb0c67-c541-4781-b4e0-98cbb2ee2e52' },
+    { recordId: '0edb0c67-c541-4781-b4e0-98cbb2ee2e52' },
+    { recordId: '0edb0c67-c541-4781-b4e0-98cbb2ee2e52' },
+    { recordId: '5adeea5a-8cc4-42b6-a94c-996c6dc789ef' },
+    { recordId: 'e717d38f-3e4e-422d-a517-ff7a4d951ce7' },
+    { recordId: 'dc365a3c-0cd0-46ed-b905-c0077fa50f4c' },
+    { recordId: '06f01a31-1aba-4316-8ef2-c2b20ef7ad21' },
+    { recordId: 'f4f18750-910a-4e84-8213-1937e9dccc0d' },
+    { recordId: '33aa7f52-c1dd-4f31-a8c0-fa3960da76d7' },
+    { recordId: null },
+    { recordId: 'a0777b42-9183-4940-847f-92dcd017d499' }
+  ]
+}
+createRes {
+  statusCode: 201,
+  successful: true,
+  data: {
+    date: '2021-04-15T01:18:15.328Z',
+    queued: 1,
+    query: { queueAndRelate: 'true' }
+  }
+}
+_CREATE_CONNECTION FibreConnection {
+  closureId: '6335e6b6-d410-4781-b7e7-9cf8197ba06c',
+  slotId: 'b73f7582-1ffe-4ccb-bb3f-4a209d4060aa',
+  trayModelId: '4d3eb4d3-a169-4609-91f6-82f254b432a8',
+  trayId: '807eb886-79c2-4adf-a69e-792ffa6f3ff3',
+  trayInId: '807eb886-79c2-4adf-a69e-792ffa6f3ff3',
+  trayOutId: '807eb886-79c2-4adf-a69e-792ffa6f3ff3',
+  traySpliceId: 'f5ff9917-7844-46a7-985c-2f761f2f1d9c',
+  traySplitterId: null,
+  inClosureExt: '4929',
+  outClosureExt: '4933',
+  cableInId: 'f19f82eb-b557-4948-bf8e-c6acef628d1d',
+  cableInExternalRef: '76001',
+  tubeFibreIn: 'T1:F4',
+  tubeInId: 'e369ebad-6085-4971-a037-a77532c25d31',
+  fibreInId: 'b4eca418-9218-42c1-b79d-d7989fd3f68d',
+  tubeFibreOut: 'T1:F1',
+  cableOutId: '5adeea5a-8cc4-42b6-a94c-996c6dc789ef',
+  cableOutExternalRef: '76000',
+  tubeOutId: 'e717d38f-3e4e-422d-a517-ff7a4d951ce7',
+  fibreOutId: '0cb8732e-91cc-4963-92ea-d95f62623489'
+}
+newRecord DbRecordCreateUpdateDto {
+  entity: 'ProjectModule:FeatureConnection',
+  type: 'FIBRE',
+  properties: {
+    OutClosureExternalRef: '4933',
+    InClosureExternalRef: '4929',
+    SlotId: 'b73f7582-1ffe-4ccb-bb3f-4a209d4060aa',
+    TrayModelId: '4d3eb4d3-a169-4609-91f6-82f254b432a8',
+    TrayId: '807eb886-79c2-4adf-a69e-792ffa6f3ff3',
+    TrayInId: '807eb886-79c2-4adf-a69e-792ffa6f3ff3',
+    TrayOutId: '807eb886-79c2-4adf-a69e-792ffa6f3ff3',
+    TraySpliceId: 'f5ff9917-7844-46a7-985c-2f761f2f1d9c',
+    TraySplitterId: null,
+    CableInId: 'f19f82eb-b557-4948-bf8e-c6acef628d1d',
+    CableInExternalRef: '76001',
+    TubeFibreIn: 'T1:F4',
+    TubeInId: 'e369ebad-6085-4971-a037-a77532c25d31',
+    FibreInId: 'b4eca418-9218-42c1-b79d-d7989fd3f68d',
+    CableOutExternalRef: '76000',
+    TubeFibreOut: 'T1:F1',
+    CableOutId: '5adeea5a-8cc4-42b6-a94c-996c6dc789ef',
+    TubeOutId: 'e717d38f-3e4e-422d-a517-ff7a4d951ce7',
+    FibreOutId: '0cb8732e-91cc-4963-92ea-d95f62623489'
+  },
+  associations: [
+    { recordId: '6335e6b6-d410-4781-b7e7-9cf8197ba06c' },
+    { recordId: 'b73f7582-1ffe-4ccb-bb3f-4a209d4060aa' },
+    { recordId: '4d3eb4d3-a169-4609-91f6-82f254b432a8' },
+    { recordId: '807eb886-79c2-4adf-a69e-792ffa6f3ff3' },
+    { recordId: '807eb886-79c2-4adf-a69e-792ffa6f3ff3' },
+    { recordId: '807eb886-79c2-4adf-a69e-792ffa6f3ff3' },
+    { recordId: 'f19f82eb-b557-4948-bf8e-c6acef628d1d' },
+    { recordId: 'e369ebad-6085-4971-a037-a77532c25d31' },
+    { recordId: 'b4eca418-9218-42c1-b79d-d7989fd3f68d' },
+    { recordId: '5adeea5a-8cc4-42b6-a94c-996c6dc789ef' },
+    { recordId: 'e717d38f-3e4e-422d-a517-ff7a4d951ce7' },
+    { recordId: '0cb8732e-91cc-4963-92ea-d95f62623489' },
+    { recordId: null },
+    { recordId: 'f5ff9917-7844-46a7-985c-2f761f2f1d9c' }
+  ]
+}
+createRes {
+  statusCode: 201,
+  successful: true,
+  data: {
+    date: '2021-04-15T01:18:15.780Z',
+    queued: 1,
+    query: { queueAndRelate: 'true' }
+  }
+}
+_CREATE_CONNECTION FibreConnection {
+  closureId: '3ace48eb-0db6-4367-95fe-d123053183cf',
+  slotId: '77bb3cbc-6dfa-4b68-8396-69ac2db35130',
+  trayModelId: '4d3eb4d3-a169-4609-91f6-82f254b432a8',
+  trayId: '03dc358a-15e5-431a-b360-bdeba0acae69',
+  trayInId: '03dc358a-15e5-431a-b360-bdeba0acae69',
+  trayOutId: '03dc358a-15e5-431a-b360-bdeba0acae69',
+  traySpliceId: 'daada058-f9c5-49b3-8621-3fa6962289db',
+  traySplitterId: null,
+  inClosureExt: '4933',
+  outClosureExt: '4934',
+  cableInId: 'dad8ce3f-3e0a-414b-805d-8daeec0442f2',
+  cableInExternalRef: '76002',
+  tubeFibreIn: 'T1:F4',
+  tubeInId: '9dea5f90-445e-4bbd-8072-6e3632841251',
+  fibreInId: 'd6bba233-b4d9-42b7-9ce8-d2d5d7bb01ff',
+  tubeFibreOut: 'T1:F1',
+  cableOutId: 'f19f82eb-b557-4948-bf8e-c6acef628d1d',
+  cableOutExternalRef: '76001',
+  tubeOutId: 'e369ebad-6085-4971-a037-a77532c25d31',
+  fibreOutId: '2f45f5dc-25e0-4b8e-beb2-9554c9311ecd'
+}
+newRecord DbRecordCreateUpdateDto {
+  entity: 'ProjectModule:FeatureConnection',
+  type: 'FIBRE',
+  properties: {
+    OutClosureExternalRef: '4934',
+    InClosureExternalRef: '4933',
+    SlotId: '77bb3cbc-6dfa-4b68-8396-69ac2db35130',
+    TrayModelId: '4d3eb4d3-a169-4609-91f6-82f254b432a8',
+    TrayId: '03dc358a-15e5-431a-b360-bdeba0acae69',
+    TrayInId: '03dc358a-15e5-431a-b360-bdeba0acae69',
+    TrayOutId: '03dc358a-15e5-431a-b360-bdeba0acae69',
+    TraySpliceId: 'daada058-f9c5-49b3-8621-3fa6962289db',
+    TraySplitterId: null,
+    CableInId: 'dad8ce3f-3e0a-414b-805d-8daeec0442f2',
+    CableInExternalRef: '76002',
+    TubeFibreIn: 'T1:F4',
+    TubeInId: '9dea5f90-445e-4bbd-8072-6e3632841251',
+    FibreInId: 'd6bba233-b4d9-42b7-9ce8-d2d5d7bb01ff',
+    CableOutExternalRef: '76001',
+    TubeFibreOut: 'T1:F1',
+    CableOutId: 'f19f82eb-b557-4948-bf8e-c6acef628d1d',
+    TubeOutId: 'e369ebad-6085-4971-a037-a77532c25d31',
+    FibreOutId: '2f45f5dc-25e0-4b8e-beb2-9554c9311ecd'
+  },
+  associations: [
+    { recordId: '3ace48eb-0db6-4367-95fe-d123053183cf' },
+    { recordId: '77bb3cbc-6dfa-4b68-8396-69ac2db35130' },
+    { recordId: '4d3eb4d3-a169-4609-91f6-82f254b432a8' },
+    { recordId: '03dc358a-15e5-431a-b360-bdeba0acae69' },
+    { recordId: '03dc358a-15e5-431a-b360-bdeba0acae69' },
+    { recordId: '03dc358a-15e5-431a-b360-bdeba0acae69' },
+    { recordId: 'dad8ce3f-3e0a-414b-805d-8daeec0442f2' },
+    { recordId: '9dea5f90-445e-4bbd-8072-6e3632841251' },
+    { recordId: 'd6bba233-b4d9-42b7-9ce8-d2d5d7bb01ff' },
+    { recordId: 'f19f82eb-b557-4948-bf8e-c6acef628d1d' },
+    { recordId: 'e369ebad-6085-4971-a037-a77532c25d31' },
+    { recordId: '2f45f5dc-25e0-4b8e-beb2-9554c9311ecd' },
+    { recordId: null },
+    { recordId: 'daada058-f9c5-49b3-8621-3fa6962289db' }
+  ]
+}
+createRes {
+  statusCode: 201,
+  successful: true,
+  data: {
+    date: '2021-04-15T01:18:16.174Z',
+    queued: 1,
+    query: { queueAndRelate: 'true' }
+  }
+}
+_CREATE_CONNECTION FibreConnection {
+  closureId: 'cae2a835-6ec4-4ea1-be14-4b0adfb7cb3a',
+  slotId: '943f8334-e2ec-48f8-9f62-cfcd47aea1fb',
+  trayModelId: '4d3eb4d3-a169-4609-91f6-82f254b432a8',
+  trayId: 'c7233356-efad-42f7-8564-6ab6767e7446',
+  trayInId: 'c7233356-efad-42f7-8564-6ab6767e7446',
+  trayOutId: 'c7233356-efad-42f7-8564-6ab6767e7446',
+  traySpliceId: '0cbf1357-07ac-482f-bda4-4fad530b7b49',
+  traySplitterId: null,
+  inClosureExt: '4934',
+  outClosureExt: '4941',
+  cableInId: 'a8dd4fc0-501d-4464-a4c7-87789b0a28f3',
+  cableInExternalRef: '606',
+  tubeFibreIn: 'T1:F4',
+  tubeInId: '9cb1ae2b-1e7a-427d-b4d7-f9c7826ba126',
+  fibreInId: 'b48698a2-30a8-4254-b4cc-77e6ff6e8648',
+  tubeFibreOut: 'T1:F1',
+  cableOutId: 'dad8ce3f-3e0a-414b-805d-8daeec0442f2',
+  cableOutExternalRef: '76002',
+  tubeOutId: '9dea5f90-445e-4bbd-8072-6e3632841251',
+  fibreOutId: '9be25875-f9a9-4d91-a8e7-0e29cf86d314'
+}
+newRecord DbRecordCreateUpdateDto {
+  entity: 'ProjectModule:FeatureConnection',
+  type: 'FIBRE',
+  properties: {
+    OutClosureExternalRef: '4941',
+    InClosureExternalRef: '4934',
+    SlotId: '943f8334-e2ec-48f8-9f62-cfcd47aea1fb',
+    TrayModelId: '4d3eb4d3-a169-4609-91f6-82f254b432a8',
+    TrayId: 'c7233356-efad-42f7-8564-6ab6767e7446',
+    TrayInId: 'c7233356-efad-42f7-8564-6ab6767e7446',
+    TrayOutId: 'c7233356-efad-42f7-8564-6ab6767e7446',
+    TraySpliceId: '0cbf1357-07ac-482f-bda4-4fad530b7b49',
+    TraySplitterId: null,
+    CableInId: 'a8dd4fc0-501d-4464-a4c7-87789b0a28f3',
+    CableInExternalRef: '606',
+    TubeFibreIn: 'T1:F4',
+    TubeInId: '9cb1ae2b-1e7a-427d-b4d7-f9c7826ba126',
+    FibreInId: 'b48698a2-30a8-4254-b4cc-77e6ff6e8648',
+    CableOutExternalRef: '76002',
+    TubeFibreOut: 'T1:F1',
+    CableOutId: 'dad8ce3f-3e0a-414b-805d-8daeec0442f2',
+    TubeOutId: '9dea5f90-445e-4bbd-8072-6e3632841251',
+    FibreOutId: '9be25875-f9a9-4d91-a8e7-0e29cf86d314'
+  },
+  associations: [
+    { recordId: 'cae2a835-6ec4-4ea1-be14-4b0adfb7cb3a' },
+    { recordId: '943f8334-e2ec-48f8-9f62-cfcd47aea1fb' },
+    { recordId: '4d3eb4d3-a169-4609-91f6-82f254b432a8' },
+    { recordId: 'c7233356-efad-42f7-8564-6ab6767e7446' },
+    { recordId: 'c7233356-efad-42f7-8564-6ab6767e7446' },
+    { recordId: 'c7233356-efad-42f7-8564-6ab6767e7446' },
+    { recordId: 'a8dd4fc0-501d-4464-a4c7-87789b0a28f3' },
+    { recordId: '9cb1ae2b-1e7a-427d-b4d7-f9c7826ba126' },
+    { recordId: 'b48698a2-30a8-4254-b4cc-77e6ff6e8648' },
+    { recordId: 'dad8ce3f-3e0a-414b-805d-8daeec0442f2' },
+    { recordId: '9dea5f90-445e-4bbd-8072-6e3632841251' },
+    { recordId: '9be25875-f9a9-4d91-a8e7-0e29cf86d314' },
+    { recordId: null },
+    { recordId: '0cbf1357-07ac-482f-bda4-4fad530b7b49' }
+  ]
+}
+createRes {
+  statusCode: 201,
+  successful: true,
+  data: {
+    date: '2021-04-15T01:18:16.458Z',
+    queued: 1,
+    query: { queueAndRelate: 'true' }
+  }
+}

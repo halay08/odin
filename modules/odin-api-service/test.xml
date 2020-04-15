@@ -1,0 +1,58 @@
+<nc:config xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0">
+    <if:interfaces xmlns:if="urn:ietf:params:xml:ns:yang:ietf-interfaces"
+                   xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0">
+        <if:interface>
+            <if:name>channel-termination 0/16</if:name>
+            <adtn-bbf-qos-tm:tm-root
+                xmlns:adtn-bbf-qos-tm="http://www.adtran.com/ns/yang/bbf-qos-traffic-mngt">
+
+                <adtn-bbf-qos-sched:scheduler-node
+                    xmlns:adtn-bbf-qos-sched="http://www.adtran.com/ns/yang/adtran-bbf-qos-enhanced-scheduling">
+                    <adtn-bbf-qos-sched:name>scheduler-channel-pair 16</adtn-bbf-qos-sched:name>
+                    <adtn-bbf-qos-sched:child-scheduler-nodes nc:operation="create">
+                        <adtn-bbf-qos-sched:name>Data-onu-0/0-0</adtn-bbf-qos-sched:name>
+                        <adtn-bbf-qos-sched:priority>2</adtn-bbf-qos-sched:priority>
+                        <adtn-bbf-qos-sched:weight>0</adtn-bbf-qos-sched:weight>
+                    </adtn-bbf-qos-sched:child-scheduler-nodes>
+                </adtn-bbf-qos-sched:scheduler-node>
+
+                <adtn-bbf-qos-sched:scheduler-node
+                    xmlns:adtn-bbf-qos-sched="http://www.adtran.com/ns/yang/adtran-bbf-qos-enhanced-scheduling"
+                    nc:operation="create">
+                    <adtn-bbf-qos-sched:name>Data-onu-0/0-0</adtn-bbf-qos-sched:name>
+                    <adtn-bbf-qos-sched-ns:scheduler-type
+                        xmlns:adtn-bbf-qos-sched-ns="http://www.adtran.com/ns/yang/adtran-bbf-qos-enhanced-scheduling-ns">
+                        adtn-bbf-qos-sched-ns:four-priority-strict-priority
+                    </adtn-bbf-qos-sched-ns:scheduler-type>
+                    <adtn-bbf-qos-sched-ns:tc-id-2-queue-id-mapping-profile-name
+                        xmlns:adtn-bbf-qos-sched-ns="http://www.adtran.com/ns/yang/adtran-bbf-qos-enhanced-scheduling-ns">
+                        Scheduler tctoqueue Mapping
+                    </adtn-bbf-qos-sched-ns:tc-id-2-queue-id-mapping-profile-name>
+                    <adtn-bbf-qos-sched:contains-queues>true</adtn-bbf-qos-sched:contains-queues>
+                    <adtn-bbf-qos-sched:queue>
+                        <adtn-bbf-qos-sched:local-queue-id>0</adtn-bbf-qos-sched:local-queue-id>
+                        <adtn-bbf-qos-sched:priority>0</adtn-bbf-qos-sched:priority>
+                        <adtn-bbf-qos-sched:weight>1</adtn-bbf-qos-sched:weight>
+                    </adtn-bbf-qos-sched:queue>
+                    <adtn-bbf-qos-sched:queue>
+                        <adtn-bbf-qos-sched:local-queue-id>1</adtn-bbf-qos-sched:local-queue-id>
+                        <adtn-bbf-qos-sched:priority>1</adtn-bbf-qos-sched:priority>
+                        <adtn-bbf-qos-sched:weight>1</adtn-bbf-qos-sched:weight>
+                    </adtn-bbf-qos-sched:queue>
+                    <adtn-bbf-qos-sched:queue>
+                        <adtn-bbf-qos-sched:local-queue-id>2</adtn-bbf-qos-sched:local-queue-id>
+                        <adtn-bbf-qos-sched:priority>2</adtn-bbf-qos-sched:priority>
+                        <adtn-bbf-qos-sched:weight>1</adtn-bbf-qos-sched:weight>
+                    </adtn-bbf-qos-sched:queue>
+                    <adtn-bbf-qos-sched:queue>
+                        <adtn-bbf-qos-sched:local-queue-id>3</adtn-bbf-qos-sched:local-queue-id>
+                        <adtn-bbf-qos-sched:priority>3</adtn-bbf-qos-sched:priority>
+                        <adtn-bbf-qos-sched:weight>1</adtn-bbf-qos-sched:weight>
+                    </adtn-bbf-qos-sched:queue>
+                    <adtn-bbf-qos-sched:scheduling-level>2</adtn-bbf-qos-sched:scheduling-level>
+                    <adtn-bbf-qos-sched:shaper-name>Shaper 50M</adtn-bbf-qos-sched:shaper-name>
+                </adtn-bbf-qos-sched:scheduler-node>
+            </adtn-bbf-qos-tm:tm-root>
+        </if:interface>
+    </if:interfaces>
+</nc:config>

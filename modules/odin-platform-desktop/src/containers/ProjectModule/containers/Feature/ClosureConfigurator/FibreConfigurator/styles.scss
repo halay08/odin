@@ -1,0 +1,58 @@
+.fibre-configurator {
+
+  overflow: auto;
+  margin-top: 14px;
+
+  .fibre-btn-wrapper {
+
+    display: flex;
+
+    .fibre-add-btn {
+
+      width: 150px;
+      margin-bottom: 7px;
+      margin-right: 14px;
+
+    }
+
+    .fibre-save-btn {
+
+      width: 150px;
+      margin-bottom: 7px;
+
+    }
+  }
+
+  .form-wrapper {
+
+    //max-width: 1200px;
+
+    .fibre-form-select {
+
+      min-width: 150px;
+      width: 100%;
+
+    }
+
+    .fibre-form-item {
+
+      .row-delete-btn {
+
+        margin-left: 16px;
+        color: red;
+
+      }
+
+    }
+
+    .ant-form-item-label {
+
+      height: 30px;
+      padding-left: 7px;
+      background: #e7e7e7;
+
+    }
+
+  }
+
+}

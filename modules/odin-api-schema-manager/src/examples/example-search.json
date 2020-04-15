@@ -1,0 +1,36 @@
+{
+  "must": [
+    {
+      "query_string": {
+        "fields": [
+          "stage.name"
+        ],
+        "query": "qualified",
+        "lenient": true,
+        "default_operator": "AND"
+      }
+    },
+    {
+      "query_string": {
+        "fields": [
+          "Address.properties.SalesStatus"
+        ],
+        "query": "pre_order",
+        "lenient": true,
+        "default_operator": "AND"
+      }
+    }
+  ],
+  "must_not": [
+    {
+      "query_string": {
+        "fields": [
+          "Products.properties.Name"
+        ],
+        "query": "youfibre 50",
+        "lenient": true,
+        "default_operator": "AND"
+      }
+    }
+  ]
+}

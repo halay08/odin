@@ -1,0 +1,45 @@
+{
+  "name": "@d19n/models",
+  "version": "0.1.59",
+  "description": "Odin Base Models",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "generate:migration": "ts-node ./node_modules/typeorm/cli.js migration:generate -n ODN1384relation_group_user --config ormconfig.local.json",
+    "patch": "npm version patch",
+    "preversion": "rm -rf dist && tsc",
+    "postversion": "npm publish && git push",
+    "build": "tsc",
+    "populate": "tsc && node dist/scripts/populate.js",
+    "migrate:local": "ts-node ./node_modules/typeorm/cli.js migration:run --config ormconfig.local.json",
+    "migrate:revert:local": "ts-node ./node_modules/typeorm/cli.js migration:revert --config ormconfig.local.json",
+    "migrate:dev": "ts-node ./node_modules/typeorm/cli.js migration:run --config ormconfig.d19n.sandbox.json",
+    "migrate:revert:dev": "ts-node ./node_modules/typeorm/cli.js migration:revert --config ormconfig.d19n.sandbox.json",
+    "migrate:yfprod": "ts-node ./node_modules/typeorm/cli.js migration:run --config ormconfig.youfibre.prod.json",
+    "migrate:revert:yfprod": "ts-node ./node_modules/typeorm/cli.js migration:revert --config ormconfig.youfibre.prod.json",
+    "migrate:noprod": "ts-node ./node_modules/typeorm/cli.js migration:run --config ormconfig.netomnia.prod.json",
+    "migrate:revert:noprod": "ts-node ./node_modules/typeorm/cli.js migration:revert --config ormconfig.netomnia.prod.json"
+  },
+  "author": "",
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "@types/node": "^12.12.6",
+    "dotenv": "^8.2.0",
+    "ts-node": "^8.5.4",
+    "typescript": "3.9.9"
+  },
+  "dependencies": {
+    "@nestjs/common": "^7.6.7",
+    "@nestjs/core": "^7.6.7",
+    "@nestjs/swagger": "^4.7.12",
+    "@types/bcrypt": "^3.0.0",
+    "bcrypt": "^3.0.6",
+    "class-transformer": "^0.2.3",
+    "class-validator": "^0.12.2",
+    "nestjs": "0.0.1",
+    "pg": "^8.4.1",
+    "reflect-metadata": "^0.1.13",
+    "rxjs": "^6.5.3",
+    "typeorm": "^0.2.30",
+    "typeorm-naming-strategies": "^1.1.0"
+  }
+}

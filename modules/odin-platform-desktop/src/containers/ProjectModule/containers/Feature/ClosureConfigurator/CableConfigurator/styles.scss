@@ -1,0 +1,58 @@
+.cable-configurator {
+
+  overflow: auto;
+  margin-top: 14px;
+
+  .cable-btn-wrapper {
+
+    display: flex;
+
+    .cable-add-btn {
+
+      width: 150px;
+      margin-bottom: 7px;
+      margin-right: 14px;
+
+    }
+
+    .cable-save-btn {
+
+      width: 150px;
+      margin-bottom: 7px;
+
+    }
+  }
+
+  .form-wrapper {
+
+    //max-width: 1200px;
+
+    .cable-form-select {
+
+      min-width: 150px;
+      width: 100%;
+
+    }
+
+    .cable-form-item {
+
+      .row-delete-btn {
+
+        margin-left: 16px;
+        color: red;
+
+      }
+
+    }
+
+    .ant-form-item-label {
+
+      height: 30px;
+      padding-left: 7px;
+      background: #e7e7e7;
+
+    }
+
+  }
+
+}

@@ -1,0 +1,137 @@
+version: 2.1
+
+parameters:
+    k8_app_name:
+        type: string
+        default: odin-api-schema-manager
+    aws_resource_name_prefix:
+        type: string
+        default: odin-api-schema-manager
+
+jobs:
+    configure_aws_cli:
+        executor: aws-cli/default
+        steps:
+            -   aws-cli/setup:
+                    profile-name: $AWS_PROFILE_NAME
+    build_and_push_image:
+      #    resource_class: large
+      docker:
+        -   image: docker:18.06.1-ce-git
+          # environment variables available for entrypoint/command run by docker container
+            environment:
+              NPM_TOKEN: $NPM_TOKEN
+      environment:
+        AWS_RESOURCE_NAME_PREFIX: << pipeline.parameters.aws_resource_name_prefix >>
+      steps:
+        - checkout
+        - setup_remote_docker
+        -   run:
+              name: Install dependencies
+              command: |
+                apk add py-pip
+                pip install awscli
+        -   run:
+              name: Login to AWS ECR
+              command: |
+                # Login to AWS ECR
+                echo "Logging in to AWS ECR..."
+                $(aws ecr get-login --no-include-email --region $AWS_DEFAULT_REGION)
+        -   run:
+              name: Build docker image
+              command: |
+                docker info
+
+                # Build the image
+                docker build -t $AWS_RESOURCE_NAME_PREFIX:$CIRCLE_SHA1 --build-arg=NPM_TOKEN=$NPM_TOKEN .
+                docker tag $AWS_RESOURCE_NAME_PREFIX:$CIRCLE_SHA1 $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$AWS_RESOURCE_NAME_PREFIX:$CIRCLE_SHA1
+              no_output_timeout: 60m
+        -   run:
+              name: Push docker image to ECR
+              command: |
+                # Push image to AWS ECR
+                echo "Pushing docker image"
+                docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$AWS_RESOURCE_NAME_PREFIX:$CIRCLE_SHA1
+    update_eks_deployment:
+      docker:
+        - image: circleci/python:3.7
+      environment:
+        K8_APP_NAME: << pipeline.parameters.k8_app_name >>
+        AWS_RESOURCE_NAME_PREFIX: << pipeline.parameters.aws_resource_name_prefix >>
+      steps:
+        - checkout
+        -   run:
+              name: Install awscli and gettext-base
+              command: |
+                sudo pip3 install awscli
+        -   run:
+              name: Install aws-iam-authenticator
+              command: |
+                curl -o aws-iam-authenticator curl -o aws-iam-authenticator https://amazon-eks.s3-us-west-2.amazonaws.com/1.13.7/2019-06-11/bin/linux/amd64/aws-iam-authenticator
+                chmod +x ./aws-iam-authenticator
+                sudo mv ./aws-iam-authenticator /usr/local/bin/aws-iam-authenticator
+        -   run:
+              name: Install kubectl
+              command: |
+                curl -o kubectl https://amazon-eks.s3-us-west-2.amazonaws.com/1.13.7/2019-06-11/bin/linux/amd64/kubectl
+                chmod +x ./kubectl
+                sudo mv ./kubectl /usr/local/bin/kubectl
+        -   run:
+              name: Update kuberenetes container image
+              command: |
+                # Update kuberenetes deployment
+                echo "deploy to kubernetes"
+
+                aws eks --region $AWS_DEFAULT_REGION update-kubeconfig --name $K8_CLUSTER_NAME
+
+                echo $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$AWS_RESOURCE_NAME_PREFIX:$CIRCLE_SHA1
+
+                kubectl config get-contexts
+
+                kubectl config set-context --current --namespace=$K8_CLUSTER_NAMESPACE
+
+                kubectl get services
+
+                kubectl get deployments
+
+                kubectl config current-context
+
+                kubectl set image deployment/$K8_APP_NAME $K8_APP_NAME=$AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$AWS_RESOURCE_NAME_PREFIX:$CIRCLE_SHA1 --record=true
+
+                # Future update to build out
+#              export NAME=my-test-nginx
+#              envsubst < deployment.yaml | kubectl apply -f -
+
+orbs:
+  node: circleci/node@4.1.0
+  aws-ecr: circleci/aws-ecr@6.12.2
+  aws-cli: circleci/aws-cli@1.3.0
+  aws-eks: circleci/aws-eks@1.0.0
+  kubernetes: circleci/kubernetes@0.11.1
+workflows:
+    version: 2.1
+    build-and-deploy:
+        jobs:
+            -   configure_aws_cli:
+                    name: YfOdinProdAwsCli
+                    context: yf_production
+                    filters:
+                        branches:
+                            only: master
+            -   build_and_push_image:
+                    name: YfOdinProdBuildAndPush
+                    context: yf_production
+                    requires:
+                        - YfOdinProdAwsCli
+                    filters:
+                        branches:
+                            only: master
+            -   update_eks_deployment:
+                    name: YfOdinProdEksDeployment
+                    context: yf_production
+                    filters:
+                        branches:
+                            only: master
+                    requires:
+                        - YfOdinProdAwsCli
+                        - YfOdinProdBuildAndPush

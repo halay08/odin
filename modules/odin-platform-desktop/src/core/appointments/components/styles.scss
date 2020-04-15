@@ -1,0 +1,48 @@
+.calendar-day-card {
+
+  .time-am {
+    background-color: #d8edff;
+    width: 145px;
+    min-width: 145px;
+    margin-right: 8px;
+
+    button {
+      width: 145px;
+    }
+  }
+
+  .time-am.ant-popover-disabled-compatible-wrapper {
+    background-color: #dedede;
+    color: #757575;
+
+    button:disabled {
+      background-color: #dedede;
+      color: #757575;
+      width: 145px;
+    }
+  }
+
+  .time-pm {
+    background-color: #032e61;
+    color: #fff;
+    width: 145px;
+    min-width: 145px;
+    margin-right: 8px;
+
+    button {
+      width: 145px;
+    }
+  }
+
+  .time-pm.ant-popover-disabled-compatible-wrapper {
+    background-color: #dedede;
+    color: #757575;
+
+    button:disabled {
+      background-color: #dedede;
+      color: #757575;
+      width: 145px;
+    }
+  }
+
+}

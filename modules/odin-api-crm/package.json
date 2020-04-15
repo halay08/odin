@@ -1,0 +1,89 @@
+{
+    "name": "@d19n/crm",
+    "main": "dist/main.js",
+    "private": true,
+    "version": "1.0.0",
+    "description": "CRM Module",
+    "license": "MIT",
+    "scripts": {
+        "prebuild": "rimraf dist",
+        "build": "nest build",
+        "start": "nest start",
+        "start:dev": "nest start --watch",
+        "start:debug": "nest start --debug --watch",
+        "start:prod": "node dist/main",
+        "lint": "tslint -p tsconfig.json -c tslint.json",
+        "test": "jest",
+        "test:watch": "jest --watch",
+        "test:cov": "jest --coverage",
+        "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
+        "test:e2e": "jest --config ./test/jest-e2e.json"
+    },
+    "dependencies": {
+        "@d19n/client": "0.0.231",
+        "@d19n/common": "0.0.148",
+        "@d19n/models": "^0.1.59",
+        "@d19n/schema-manager": "^2.1.188",
+        "@digikare/nestjs-prom": "^1.0.0",
+        "@elastic/elasticsearch": "^7.9.2",
+        "@golevelup/nestjs-rabbitmq": "^1.16.0",
+        "@nestjs/common": "^7.6.7",
+        "@nestjs/config": "^0.6.1",
+        "@nestjs/core": "^7.6.7",
+        "@nestjs/jwt": "^7.2.0",
+        "@nestjs/passport": "^7.1.5",
+        "@nestjs/platform-express": "^7.6.7",
+        "@nestjs/swagger": "^4.7.8",
+        "@nestjs/testing": "^7.6.7",
+        "@nestjs/typeorm": "^7.1.5",
+        "axios": "^0.19.2",
+        "change-case": "^4.1.1",
+        "dayjs": "^1.10.4",
+        "dotenv": "^8.2.0",
+        "jaeger-client": "^3.17.1",
+        "moment": "^2.26.0",
+        "opentracing": "^0.14.4",
+        "pg": "^8.3.0",
+        "pluralize": "^8.0.0",
+        "reflect-metadata": "^0.1.13",
+        "rimraf": "^3.0.0",
+        "rxjs": "^6.5.3",
+        "typeorm": "^0.2.20",
+        "uk-clear-addressing": "^2.2.2"
+    },
+    "devDependencies": {
+        "@babel/types": "7.12.10",
+        "@nestjs/cli": "^6.9.1",
+        "@nestjs/schematics": "^6.7.0",
+        "@types/express": "^4.17.1",
+        "@types/jest": "^24.0.18",
+        "@types/node": "^12.7.8",
+        "@types/supertest": "^2.0.8",
+        "jest": "^24.9.0",
+        "prettier": "^1.18.2",
+        "supertest": "^4.0.2",
+        "ts-jest": "^24.1.0",
+        "ts-loader": "^6.2.0",
+        "ts-node": "^8.4.1",
+        "tsconfig-paths": "^3.9.0",
+        "tslint": "^5.20.0",
+        "typescript": "3.9.9"
+    },
+    "jest": {
+        "moduleFileExtensions": [
+            "js",
+            "json",
+            "ts"
+        ],
+        "rootDir": "src",
+        "testRegex": "Test.ts$|.spec.ts$",
+        "transform": {
+            "^.+\\.(t|j)s$": "ts-jest"
+        },
+        "collectCoverageFrom": [
+            "**/*.(t|j)s"
+        ],
+        "coverageDirectory": "../coverage",
+        "testEnvironment": "node"
+    }
+}

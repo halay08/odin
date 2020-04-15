@@ -1,0 +1,19 @@
+{
+  "type": "postgres",
+  "host": "localhost",
+  "port": 5442,
+  "username": "postgres",
+  "password": "postgres",
+  "synchronize": false,
+  "database": "odin_local",
+  "entities": [
+    "dist/**/*.entity.js"
+  ],
+  "migrationsTableName": "odin_migration_table",
+  "migrations": [
+    "migration/*.ts"
+  ],
+  "cli": {
+    "migrationsDir": "migration"
+  }
+}

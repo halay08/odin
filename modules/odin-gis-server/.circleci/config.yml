@@ -1,0 +1,161 @@
+version: 2.1
+
+jobs:
+    configure_aws_cli:
+        executor: aws-cli/default
+        steps:
+            -   aws-cli/setup:
+                    profile-name: $AWS_PROFILE_NAME
+    build_and_push_image:
+        #    resource_class: large
+        docker:
+            -   image: docker:18.06.1-ce-git
+        parameters:
+          k8_app_name:
+            type: string
+            default: odin-gis-server-dev
+          aws_resource_name_prefix:
+            type: string
+            default: odin-gis-server-dev
+        environment:
+          K8_APP_NAME: << parameters.k8_app_name >>
+          AWS_RESOURCE_NAME_PREFIX: << parameters.aws_resource_name_prefix >>
+        steps:
+            - checkout
+            - setup_remote_docker
+            -   run:
+                    name: Install dependencies
+                    command: |
+                        apk add py-pip
+                        pip install awscli
+            -   run:
+                    name: Login to AWS ECR
+                    command: |
+                        # Login to AWS ECR
+                        echo "Logging in to AWS ECR..."
+                        $(aws ecr get-login --no-include-email --region $AWS_DEFAULT_REGION)
+            -   run:
+                    name: Build docker image
+                    command: |
+                        # Build and tag the image
+                        echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" >> .npmrc
+                        echo "Building docker iamge"
+                        cat .npmrc
+                        docker info
+
+                        touch .env
+                        echo "AWS_ACCESS_KEY_ID=${AWS_S3_ACCESS_KEY_ID}" >> .env
+                        echo "AWS_SECRET_ACCESS_KEY=${AWS_S3_SECRET_ACCESS_KEY}" >> .env
+                        cat .env
+
+                        # Build the image
+                        docker build -t $AWS_RESOURCE_NAME_PREFIX:$CIRCLE_SHA1 .
+                        docker tag $AWS_RESOURCE_NAME_PREFIX:$CIRCLE_SHA1 $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$AWS_RESOURCE_NAME_PREFIX:$CIRCLE_SHA1
+                    no_output_timeout: 60m
+            -   run:
+                    name: Push docker image to ECR
+                    command: |
+                        # Push image to AWS ECR
+                        echo "Pushing docker image"
+                        docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$AWS_RESOURCE_NAME_PREFIX:$CIRCLE_SHA1
+    update_eks_deployment:
+        executor: aws-eks/python3
+        parameters:
+          k8_app_name:
+            type: string
+            default: odin-gis-server-dev
+          aws_resource_name_prefix:
+            type: string
+            default: odin-gis-server-dev
+        environment:
+          K8_APP_NAME: << parameters.k8_app_name >>
+          AWS_RESOURCE_NAME_PREFIX: << parameters.aws_resource_name_prefix >>
+        steps:
+            - kubernetes/install
+            -   aws-eks/update-kubeconfig-with-authenticator:
+                    cluster-name: $K8_CLUSTER_NAME
+                    install-kubectl: true
+            - checkout
+            -   run:
+                    name: Update kuberenetes container image
+                    command: |
+                        # Update kuberenetes deployment
+                        echo "deploy to kubernetes"
+
+                        echo $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$AWS_RESOURCE_NAME_PREFIX:$CIRCLE_SHA1
+
+                        kubectl config set-context --current --namespace=$K8_CLUSTER_NAMESPACE
+
+                        kubectl get services
+
+                        kubectl get deployments
+
+                        kubectl config current-context
+
+                        kubectl set image deployment/$K8_APP_NAME $K8_APP_NAME=$AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$AWS_RESOURCE_NAME_PREFIX:$CIRCLE_SHA1 --record=true
+
+orbs:
+    node: circleci/node@1.1.6
+    aws-ecr: circleci/aws-ecr@6.7.0
+    aws-cli: circleci/aws-cli@0.1.20
+    aws-eks: circleci/aws-eks@0.2.6
+    kubernetes: circleci/kubernetes@0.4.0
+
+workflows:
+    version: 2.1
+    build-and-deploy:
+        jobs:
+            -   configure_aws_cli:
+                    name: OdinSandboxAwsCli
+                    context: netomnia_production
+                    filters:
+                        branches:
+                            only: staging
+            -   build_and_push_image:
+                    name: OdinSandboxBuildAndPush
+                    k8_app_name: odin-gis-server-dev
+                    aws_resource_name_prefix: odin-gis-server-dev
+                    context: netomnia_production
+                    requires:
+                        - OdinSandboxAwsCli
+                    filters:
+                        branches:
+                            only: staging
+            -   update_eks_deployment:
+                    name: OdinSandboxEksDeployment
+                    k8_app_name: odin-gis-server-dev
+                    aws_resource_name_prefix: odin-gis-server-dev
+                    context: netomnia_production
+                    filters:
+                        branches:
+                            only: staging
+                    requires:
+                        - OdinSandboxAwsCli
+                        - OdinSandboxBuildAndPush
+            -   configure_aws_cli:
+                  name: NetomniaOdinProdAwsCli
+                  context: netomnia_production
+                  filters:
+                    branches:
+                      only: master
+            -   build_and_push_image:
+                  name: NetomniaOdinProdBuildAndPush
+                  k8_app_name: odin-gis-server
+                  aws_resource_name_prefix: odin-gis-server
+                  context: netomnia_production
+                  requires:
+                    - NetomniaOdinProdAwsCli
+                  filters:
+                    branches:
+                      only: master
+            -   update_eks_deployment:
+                  name: NetomniaOdinProdEksDeployment
+                  k8_app_name: odin-gis-server
+                  aws_resource_name_prefix: odin-gis-server
+                  context: netomnia_production
+                  filters:
+                    branches:
+                      only: master
+                  requires:
+                    - NetomniaOdinProdAwsCli
+                    - NetomniaOdinProdBuildAndPush

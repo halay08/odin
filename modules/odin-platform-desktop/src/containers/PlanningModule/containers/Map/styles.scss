@@ -1,0 +1,264 @@
+@import url("https://openlayers.org/en/v6.3.1/css/ol.css");
+@import url("https://unpkg.com/ol-layerswitcher@3.5.0/src/ol-layerswitcher.css");
+
+#map {
+  width: 100%;
+  height: 100%;
+}
+
+
+.ol-popup {
+  z-index: 999;
+  position: absolute;
+  background-color: white;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+  padding: 15px;
+  border-radius: 10px;
+  border: 1px solid #cccccc;
+  bottom: 12px;
+  left: -50px;
+  min-width: 250px;
+}
+.ol-popup:after, .ol-popup:before {
+  top: 100%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+}
+.ol-popup:after {
+  border-top-color: white;
+  border-width: 10px;
+  left: 48px;
+  margin-left: -10px;
+}
+.ol-popup:before {
+  border-top-color: #cccccc;
+  border-width: 11px;
+  left: 48px;
+  margin-left: -11px;
+}
+.ol-popup-closer {
+  text-decoration: none;
+  position: absolute;
+  top: 2px;
+  right: 8px;
+}
+.ol-popup-closer:after {
+  content: "✖";
+  font-size: 0.7em;
+}
+
+
+.ant-image-preview-mask{
+  background-color: rgba(0, 0, 0, 0.85);
+}
+
+.resultCollapsed {
+  display: none;
+}
+
+.resultOpened {
+  display: block;
+}
+
+
+.mapSidebar {
+  background-color: #ffffff;
+  overflow-y: auto;
+  height: 100vh;
+  z-index: 2;
+  transition: all 200ms ease-in-out;
+  box-shadow: 1px 0px 25px #00000066;
+}
+
+.sidebarFeatureSearchResult{
+  margin-bottom:15px;
+}
+
+.sidebarFeatureSearchResult .ant-card-actions li{
+  margin:0;
+  padding: 3px 2px 2px 2px;
+}
+
+
+/* Sidebar Radio buttons */
+.sideMenuSelector label {
+  width: 50%;
+  text-align: center;
+}
+.sideMenuSelector label:first-child{
+  border-radius: 5px 0 0 5px;
+}
+.sideMenuSelector label:last-child{
+  border-radius: 0 5px 5px 0;
+}
+
+
+/* Floating button disabled */
+.floatingButton:disabled {
+  background-color: #55afff !important;
+  color: white;
+  opacity: 0.5;
+  border: none;
+}
+
+.floatingButton:disabled:hover {
+  color: white;
+}
+
+
+/* Sidebar Show/Collapse button */
+.floatingSidebarButton {
+  position: fixed !important;
+  z-index: 99;
+  background-color: #fff;
+}
+
+.floatingSidebarButtonNoTabs {
+  top: 58px;
+  left: 20px;
+}
+
+.floatingSidebarButtonTabs {
+  top: 90px;
+  left: 20px;
+}
+
+/* Floating Apply / Cancel Buttons */
+.floatingApplyButton {
+  position: fixed !important;
+  bottom: 179px;
+  right: 20px;
+  z-index: 99;
+  color: white !important;
+  background-color: #52c41a !important;
+  border-color: #52c41a !important;
+}
+
+.floatingCancelButton {
+  position: fixed !important;
+  bottom: 128px;
+  right: 20px;
+  z-index: 99;
+  color: white !important;
+  background-color: #f5222d !important;
+  border-color: #f5222d !important;
+}
+
+.floatingApplyCancelContainer {
+  position: fixed;
+  background-color: #1890ff;
+  bottom: 123px;
+  right: 16px;
+  height: 101px;
+  border-radius: 40px;
+  width: 48px;
+  z-index: 100;
+}
+
+
+/* Floating Select Feature Button */
+.floatingSelectFeatureButton {
+  position: fixed !important;
+  bottom: 75px;
+  right: 20px;
+  z-index: 99;
+}
+
+/* Floating Location button */
+.floatingLocateMeButton {
+  position: fixed !important;
+  bottom: 25px;
+  right: 20px;
+  z-index: 99;
+}
+
+/* Floating Add Feature Button */
+.floatingAddButton {
+  position: fixed !important;
+  bottom: 125px;
+  right: 20px;
+  z-index: 99;
+}
+
+.activeFloatingButton {
+  color: white !important;
+  background-color: #52c41a !important;
+  border-color: #52c41a !important;
+}
+
+.disabledFloatingButton {
+  color: white !important;
+  background-color: #1890ff !important;
+  border-color: #1890ff !important;
+}
+
+
+/* Switched over to sidebar, killed the button. */
+.ol-control {
+  display: none;
+}
+
+.layer-switcher {
+  top: 0.2em;
+  padding: 5px;
+  position: relative;
+
+  /* Switched over to sidebar, killed the button. */
+  button {
+    display: none;
+  }
+
+  .panel {
+    padding: 25px;
+  }
+
+  .layer-switcher-fold button:hover, .layer-switcher-closed button:hover {
+    cursor: pointer !important;
+  }
+
+  /* Tree expanded -> Minus */
+  .layer-switcher-open button {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAbwAAAG8B8aLcQwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAAsSURBVDiNY/z//z8DJYCJIt2jBlDHAEYGBoY8BgYGIzL1n6PcBaMJaTgYAAC3SQeGGAcjygAAAABJRU5ErkJggg==') !important;;
+    background-size: 10px;
+    vertical-align: baseline;
+    outline: 0 !important;
+  }
+
+  /* Tree closed -> Plus */
+  .layer-switcher-close button {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAagAAAGoB3Bi5tQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAABFSURBVDiNY2DAD+YyMDDMwaeAhYAB+gTkGZgIKRg1gDBgZIBEkwEOeU0ofR2H/AWKXUAInIFinGDgA3EYGEAoN14gZAAAENgGjJyqCWQAAAAASUVORK5CYII=') !important;
+    transform: none;
+    background-size: 10px;
+    vertical-align: baseline;
+    outline: 0 !important;
+  }
+
+  .layer-switcher button:active {
+    border: none !important;
+  }
+
+  .button {
+    float: right;
+    width: 44px;
+    height: 44px;
+    border: 4px solid #000;
+    background-image: url('https://odin-ui-assets.s3.eu-west-2.amazonaws.com/odin-map-layers.jpg');
+    background-size: 32px;
+    background-position: 2px;
+    background-repeat: no-repeat;
+    background-color: #FFF;
+  }
+}
+
+/* Move bigger modals below the main menu on mobile viewport */
+@media (max-width: 767px) {
+  .ant-modal-centered .ant-modal {
+    margin-top: 50px;
+  }
+
+
+}

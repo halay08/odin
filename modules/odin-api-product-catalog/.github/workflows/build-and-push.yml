@@ -1,0 +1,61 @@
+name: Production Build
+
+on:
+
+    push:
+
+        tags:
+            - 'v*'
+
+        branches:
+            - master
+            - staging
+
+jobs:
+
+    build:
+
+        runs-on: Ubuntu-20.04
+
+        steps:
+
+            - uses: actions/checkout@v1
+
+            - name: Set version identifier (based on tag)
+              if: startsWith(github.ref, 'refs/tags/')
+              shell: bash
+              run: |
+                  echo "VERSION_IDENTIFIER=$(echo ${GITHUB_REF:10})" >> $GITHUB_ENV
+
+            - name: Set version identifier (based on commit sha from branch)
+              if: startsWith(github.ref, 'refs/heads/')
+              shell: bash
+              run: |
+                  echo "VERSION_IDENTIFIER=$(echo ${{ github.sha }})" >> $GITHUB_ENV
+
+            -   name: Docker login to AWS
+                run: |
+                    aws ecr get-login-password --region ${{ secrets.AWS_REGION }} | docker login --username AWS --password-stdin ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com
+                env:
+                    AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+                    AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+
+            -   name: Build docker image
+                run: |
+                    docker build  --network=host \
+                                  --build-arg=NPM_TOKEN="${{ secrets.NPM_TOKEN }}" \
+                                  -t ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/${{ secrets.MODULE_NAME }}:${{ env.VERSION_IDENTIFIER }} \
+                                  .
+
+            -   name: Push docker image to AWS ECR
+                run: |
+                    docker push ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/${{ secrets.MODULE_NAME }}:${{ env.VERSION_IDENTIFIER }}
+
+            - name: Slack notification
+              uses: 8398a7/action-slack@v3
+              with:
+                  status: ${{ job.status }}
+                  fields: repo,message,commit,author,action,eventName,ref,workflow,job,took
+              env:
+                  SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+              if: always()

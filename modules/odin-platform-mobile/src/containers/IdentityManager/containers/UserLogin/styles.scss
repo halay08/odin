@@ -1,0 +1,44 @@
+.blurred{
+  filter: blur(6px);
+}
+
+.loginModal .ant-modal-footer {
+  display:none;
+}
+
+
+.login-container-modal {
+  background-color: #fff;
+  padding: 50px 70px;
+
+  .submit-email-button {
+    margin: auto;
+    display: block;
+    margin-top: 1rem;
+  }
+}
+
+.login-container {
+  background-color: #fff;
+  padding: 80px 100px;
+
+  .submit-email-button {
+    margin: auto;
+    display: block;
+    margin-top: 1rem;
+  }
+}
+
+.loginSubmit {
+  width: 40%;
+}
+
+@media (max-width: 576px) {
+  .login-container {
+    padding: 30px;
+  }
+
+  .loginSubmit {
+    width: 60%;
+  }
+}

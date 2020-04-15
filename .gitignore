@@ -1,0 +1,14 @@
+**/secrets.json
+**/dev.log
+
+.idea
+.npmrc
+.git_bak
+.DS_Store
+modules/.DS_Store
+node_modules/
+libiconv2.dll
+libintl3.dll
+make.exe
+infra/deploy/.terraform/
+infra/deploy/.terraform.lock.hcl

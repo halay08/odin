@@ -1,0 +1,60 @@
+/* Hide the Year switcher */
+.ant-picker-calendar-mode-switch{
+  display: none;
+}
+
+.appointmentDateHeader{
+  margin-top: 8px;
+}
+
+.events {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.events .ant-badge-status {
+  overflow: hidden;
+  white-space: nowrap;
+  width: 100%;
+  text-overflow: ellipsis;
+  font-size: 12px;
+}
+.notes-month {
+  text-align: center;
+  font-size: 28px;
+}
+.notes-month section {
+  font-size: 28px;
+}
+
+.dayCell{
+  text-align: center;
+  padding-top:16px;
+  display: block;
+  width:100%;
+  height: 92%;
+  border-radius: 5px;
+}
+
+.dayIsUnavailable {
+  background-color: #fff1f0;
+}
+
+.amTimeSlot{
+  background-color: #d8edff;
+  border: #d8edff;
+}
+
+.pmTimeSlot{
+  color: #fff;
+  background-color: #032e61;
+  border:#032e61;
+}
+
+.timeSlotCount{
+  margin-right: 0;
+}
+
+.ant-collapse-item{
+  background-color: #ffffff;
+}

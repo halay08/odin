@@ -1,0 +1,17 @@
+{
+  "odin": {
+    "dev": {
+      "base_domain": "sandbox.odinfusion.com"
+    }
+  },
+  "youfibre": {
+    "prod": {
+      "base_domain": "prod.youfibre.com"
+    }
+  },
+  "netomnia": {
+    "prod": {
+      "base_domain": "prod.netomnia.com"
+    }
+  }
+}
